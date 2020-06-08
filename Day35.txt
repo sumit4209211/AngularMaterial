@@ -1,0 +1,142 @@
+==> Todays Topics:-
+=> CSS in Angular
+=> ngStyle, ngClass directives in Angular
+=> Programs
+
+=> What is CSS?
+= It stands for Cascading Style Sheets
+
+= HTML (display the data in webpage)
+= CSS (makes HTML-data more stylish,colorful,interactive)
+
+= CSS in Angular using [style.cssprop]="'cssvalue'"
+= CSS in Angular using [ngStyle]="{cssname:cssvalue,...}"
+
+
+==> Class Binding in Angular Webpage:-
+
+b) class-based CSS::::
+= In html, we apply class based CSS as follows,
+<style>
+	.c1
+	{
+		color:blue;
+	}
+</style>
+Ex:
+	<h3 class="c1">.........</h3>
+
+= The main use of class-based CSS is it will apply common CSS for group a of HTML-elements
+
+
+= In Angular, we apply this using Class-Binding feature
+Ex:
+	<h3 [class]="'c1/class_var'">.........</h3>
+	
+//Here we can apply directly CSS-Class & also dynamically Comp-Class-Property(Data-prop)
+= Give class-name in single-quotes ''
+= class-var then single-quotes is not-required
+
+= [class] attribute is used in [] binding operator
+
+
+=> Other Syntax:-
+	<h3 [class.c1]="true/false">.........</h3>
+= Here true means c1-class is applied to <h3>
+= Here false means c1-class is NOT-applied to <h3>
+	
+	
+=> Applying multiple-class CSS at a time,
+<h3 [ngClass]="{c1:true,c2:false,..}">.........</h3>
+//Here {} is javascript-object
+= c1 is true then it is applied to <h3>
+= c2 is false then it is NOT-applied to <h3>
+
+
+NOTE:- (3-ways of working with class-based CSS in Angular)
+i) 	[class]="'classname'"
+	[class]="class-var-name" (Data-prop in comp-class)
+	
+ii)	[class.c1]="true/false"	
+
+iii) [ngClass]="{c1:true,c2:false,....}"
+(Apply mutliple-class-css at a time)
+	
+	
+//Program (comp88 ----> "demo-app")
+(Program to apply class-based CSS in angular(3-ways))
+
+Ex:-
+<div>
+    <h3>Working with class, ngClass attrs</h3>
+    <p [class]="'c1'">This is Para9</p>
+    <p class="c2">This is Para10</p>
+    <hr />
+    <p [class.c1]="true">This is Para11</p>
+    <p [class.c2]="bool">This is Para12</p>
+    <hr />
+    <p [ngClass]="{c1:true,c2:false,c3:true}">This is Para13</p>
+    <p [ngClass]="myClasses">This is Para14</p>
+</div>
+(and in comp-class)
+  bool=true;
+  myClasses = {
+    c1:false,
+    c2:true,
+    c3:true
+  };
+
+
+===>>> Other CSS in HTML:-
+c) tag-based CSS: (comp88.component.css)
+= this css is applied to all the matching-tags 
+<style>
+	p
+	{
+		text-align:center;
+		font-size:23px;
+	}
+</style>
+Ex:
+	<p>This is para1</p>
+
+
+d) id-based CSS: (comp88.component.html)
+= id based is applied to that particular element only
+<style>
+	#p9
+	{
+		font-family:courier new;
+		
+	}
+</style>
+Ex:
+	<p id="p9">This is para9</p>
+
+
+NOTE:
+Angular supports mainly 2 CSS, they are 
+1) Style-based ([style] or [ngStyle]="{}")
+2) Class-based ([class] or [class.classname]="boolean" or [ngClass]="{}")
+
+
+=> Applying Global CSS in Angular:-
+= Under src/styles.css
+p{
+	font-style:italic;
+	width:50%;
+}
+= This css is applied to all the <p> in root-comp and all the child-comp's whereever we have <p>'s
+
+//Program (Assignment)
+(Create a webpage to display collection of images in Angular with CSS in Angular)
+
+==> Assets in Angular:-
+= In every Angular app, we have assets folder under src/assets folder
+
+= In this folder we put our application-resources like images,pics,files,docs,videos etc
+
+= Such resources can be used directly in Root-Comp, as well as Child-Comp
+
+
+

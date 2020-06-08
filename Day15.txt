@@ -1,0 +1,102 @@
+==> Todays Topics:-
+=> Introduction to Angular
+=> History of Angular
+=> Features of Angular (New Versions)
+
+
+==>> Introduction to Angular:::::
+= Angular is a Typescript Framework for developing dynamic web-applications
+
+NOTE:
+= web-applications (websites)
+Ex:
+	www.fb.com
+	www.yahoo.com
+	www.gmail.com
+
+= dynamic here means data in websites changes wrt to 3-things
+a) Time		(News-Update) Ex: Google-News
+b) Location	(Weather-Report) Ex: Google-Weather	
+c) User		(Email/Social-Networking)	Ex:Gmail,Facebook
+
+= To develop web-apps in Angular we require Typescript
+(Scripting or Programming in HTML webpages)
+
+= HTML (How to display data using <tags>)
+= CSS  (It makes HTML-data more stylish i.e, colors,styles etc)
+= Javascript/Typescript (Used as programming in webpages)
+
+= Framework (Runtime-Lib + Runtime-Environment)
+(Library means Modules in Typescript)
+
+= It uses HTML, CSS, Javascript and Typescript
+=(***) Angular is written in Typescript 
+= Typescript compiles to Javascript and displays dynamic-information/data in Browser
+
+
+= Some Notable-Features in Angular are,
+	a) HTTP Service
+	b) Animations
+	c) Materials etc
+	d) Auto-complete
+	e) Navigations
+	f) Toolbars
+	g) Menus 
+	h) Routings (SPA) 
+	i) Components
+	j) Services etc
+
+
+=> Pre-Requisites::
+	a) HTML
+	b) CSS
+	c) Javascript
+	d) Typescript
+	e) DOM
+
+==>> History of Angular:::::
+= AngularJS is known as Angular-1 
+(written in Javascript)- 2009 (2012 by Google)
+(AJS is Javascript Framework for developing web-apps)
+
+NOTE:
+(java v/s .net)
+= Both of them has OOP
+= Difference is Programming Syntaxes
+
+
+= Angular-2 (written in Typescript) - Sep 14, 2016
+= Angular-3 (skipped)
+= Angular-4 (March 23, 2017)
+= Angular-5 (November 1, 2017)
+= Angular-6 (May 4, 2018)
+= Angular-7 (October 18, 2018)
+= Angular-8 (May 28, 2019)
+
+
+=> NOTE:
+= All version are backward compatible and expected a new-version every 6 months
+= In new-versions some old feature would be deprecated(outdated) and added with new library
+
+=> Angular(TS) is based on Components and Services Architecture. Whereas Angular JS is based on M-V-C Architecture
+
+
+=> Enhancements Angular-4/5/6/7/8:
+= "if" is supported in Angular-2 where as Angular-4 onwards supports "if-else" also
+= "as" keyword in for-loop from Angular-4 onwards
+= Animation package is separate 
+(@angular/animations before @angular/core)
+= Condition based Animation disable feature
+= use <ng-template> instead of <template> 
+(it is already available in HTML)
+= From Angular-4 onwards, we require Typescript 2.2+
+= Pipe titlecase Ex: {{'Welcome to Angular' | titlecase}}
+= http get api is simplified from Angular-4 onwards with HttpClient (URLSearchParams)
+= Small and Fast Apps
+
+= Progressive Web apps from Angular5 onwards
+= Material Design Enhancements from Angular5
+= ngUpdate, ngAdd, RxJS-6 Enhancements from Angular6
+= App Performance, Virtual Scrolling from Angular7
+= Typescript 3.1, RxJS-6.3, Node10 support from Angular7
+= Finally Angular8, Fast Rebuild time, template type-checkings, backward compatibility

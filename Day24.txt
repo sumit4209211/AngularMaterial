@@ -1,0 +1,136 @@
+==> Todays Topics:-
+=> Conditional directives in Angular
+(*ngIf, if-else, if-then-else)
+=> Working with Arrays in Angular
+(*ngFor directive for looping)
+
+=> What is directive?
+= Directive is nothing but attribute according to HTML
+= And according to Angular it is directive
+= Directives are used with HTML-Elements as attributes
+Ex:
+	<li *ngFor="">...</li>
+	<span *ngif="">...</span>
+	
+= Directives provides some extra functionality to HTML-Elements
+Ex:
+*ngFor directive (it provides looping functionality)
+*ngIf directive (it provides branching control-structure)
+
+	
+=> if-condition:-
+Ex: (in TS)
+	if(<<condition>>)	---> True/False
+	{
+		true-part;
+	}
+	....next-stmts...
+
+= if-condition CS is used to check a condition for boolean-value and process it's element
+Syntax:
+	*ngIf = "boolean"
+	
+Ex:
+	<p *ngIf="true/false">
+		...body...
+	</p>
+	
+//Program (comp41 component)
+cmd> ng g c comp41 
+(new-comp is created under welcome-app)
+
+==> If-else condition:-
+= Syntax:
+	*ngIf = "boolean; else condition"
+	 <ng-template #condition>......</ng-template>
+
+= If boolean is true then if part is executed else condition <ng-template> is executed
+= for <ng-template>, id is passed as "condition" variable of if-else
+
+
+==> If-then-else condition:-
+= Syntax:
+	*ngIf = "boolean; then condition1 else condition2"
+	 <ng-template #condition1>......</ng-template>
+	 <ng-template #condition2>......</ng-template>
+= if boolean is true then #condition1 <ng-template> is executed
+= if boolean is false then #condition2 <ng-template> is executed
+
+NOTE:-
+<ng-template> is a custom-tag provided by angular to work with conditional directives
+
+
+//Program (comp41)
+(Create a new-component comp4 and add a boolean-variable to comp4.component.ts class and use in HTML file to display some message using if, if-else, if-then-else)
+
+
+==>>> Arrays in Angular:-
+= Array is coll. of same type of data (different type of data)
+= [] array-operator
+
+Ex:
+	var nums : number[] = [11,22,33,44,55]; (TS)
+------------------------------------------------------
+	nums = [11,22,33,44,55]; (Angular/TS class)
+	courses = ['Anuglar','NodeJs','PHP'];
+	sals = [5600.56,9852.60,4500.20];
+	
+//Program ("demo-app" new angular-app)	
+cmd>ng new demo-app	
+cmd> cd demo-app
+cmd>ng serve -o
+
+NOTE:-
+How to access array-elements? 
+we use indexes(0 to n-1)
+Ex:
+	nums[0],
+	nums[1],
+	nums[2],
+	.......
+
+= The best way to process elements of an array is with loops 
+(in TS or Angular .ts class)
+Ex:	
+	for(i=0;i<nums.length;i++)	//syntax we use in TS
+		nums[i];
+
+= To process elements of an array in Anuglar Template (html-code), we use *ngFor directive
+Syntax:
+	*ngFor = "let var of array"
+
+
+Ex:
+<ul>
+  <li *ngFor="let item of courses; let i = index">
+    {{i}} {{courses}}
+  </li>
+</ul>
+
+= *ngFor works like foreach loop in java & ng-repeat in AngularJS
+
+
+NOTE:
+In *ngFor directive we can use the following options,
+1) let i = index; (using i we can get index-values) 0,1,2,3,...
+2) first as f (true for 1st index and false for others) 0
+3) last as l  (true for last index and false for others) (length-1)
+4) odd as o   (true for odd index and false for others) 1,3,5,7
+5) even as e  (true for even index and false for others) 0,2,4,6 
+
+
+//Program (demo-app) Assignment
+(Create a webpage to display courses(Array) in table format with required CSS)
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

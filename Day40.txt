@@ -1,0 +1,201 @@
+==> Todays Topics:-
+= SPA development in Angular
+= Program
+
+==>> Routing(SPA) & Navigation in Angular:-
+= Navigation means take control from one-page to another in Webpage
+= Routing means taking control from one view to another view in single-page
+
+NOTE:-
+= Navigation happens between 2 different pages
+= Routing happens in a single
+
+=> What is SPA?
+= It is a Webpage in our Web-App, in which Initial Request goes to the server and we get response as Single-Page
+
+= In this Single-Page, we have different links for navigation(routing) with in same webpage
+
+= When such links are clicked for navigation, we get display/view in same Webpage
+
+= Your complete Web-App task is done in one Single-Page itself
+Ex:
+	Gmail
+	Facebook
+	Twitter
+	Google News
+	Most IT/Business Websites
+	etc
+
+NOTE:
+= By default all Angular application are SPA with index.html displaying Root-Comp(app.component.html) as Home-Page and then all child components as different views in Home-Page
+
+= We use links <a> anchors for navigations, known as Routing
+= Each navigation page is one component in angular-application
+
+
+//Program (spa-app)
+cmd>ng new spa-app
+cmd>cd spa-app
+cmd>ng serve -o
+
+=> Steps for SPA:-
+1) 
+Import "RouterModule" from "@angular/router" in "app.module.ts"(root-module)
+Example, 
+import { RouterModule} from '@angular/router';
+
+= Also include that under imports-array
+
+2)
+= Create a multiple-component(comp1/comp2/comp3/comp4/comp5) in you app
+cmd>ng g component comp1/2/3/4/5
+
+3)
+Above module is included in the "imports" with Routing configurations as follows,
+
+Example,
+RouterModule.forRoot([
+      {
+         path: 'comp1',
+         component: Comp1Component
+      },
+	  {
+         path: 'comp2',
+         component: Comp3Component
+      },
+	  .....
+    ])
+
+NOTE:
+= "RouterModule" refers to forRoot(), which takes array-of-objects as input 
+= This array has multiple-objects {} with 'path' and 'component' members
+= "path" is name of router (used in links)
+= "component" is the name of the component-class
+
+4) 
+Now, goto different child-component classes, add  data-members
+msg1 = "Hello from Component1; 
+(msg1/msg2/msg3/msg4/msg5)
+
+
+5) Goto respective child-component templates and prepare different views (.html files)
+Ex:
+<p>
+  {{msg1}}	//msg1/msg2/msg3/msg4/msg5
+</p>
+<p>
+  comp1 works!	//comp1/comp2/comp3/comp4/comp5
+</p>
+
+
+6) Now prepare your Single-Page navigation links in Root-Component as follows, (.html file)
+(app.component.html)
+<nav>
+	<a routerLink="comp1">Link1</a>
+	......
+</nav>
+
+NOTE:	(not-compulsory)
+<nav></nav>
+This element is used to group different routing links in a webpage
+= This element is introuced in HTML-5
+
+NOTE:-
+= In <a> tag instead of href="" attribute we use "routerLink" directive as our navigation reference
+= with href="" complete-page is refreshed
+= using routerLink="" only partial page is refreshed for view
+
+7) 
+For Single-Page display we use this special element from Angular
+<div>
+    <router-outlet>
+    </router-outlet>
+</div>
+
+= inside this <router-outlet> element, all our single-page links data(view) will be displayed
+
+
+8)
+Now, verify your SPA usage in Angular by clicking on different links
+
+NOTE:
+{
+    path: '',   //default-navigation
+    component: Comp1Component
+},
+.....
+//last
+{
+    path: '**', //any missing navigation
+    component: Comp1Component
+}
+
+===>> Advantage:-
+= Instead of loading the whole page as response,using SPA, we can perform partial-page updates
+= This reduces burden on server
+= It also reduces network traffic
+
+
+NOTE:-
+= (app-routing.module.ts) is a new file created auto with every angular-routing app
+= we use this file to simplify our coding in root-module(app.module.ts) by importing this class and adding to imports array
+Ex:-(app.module.ts)
+import { AppRoutingModule } from './app-routing.module';
+(and)
+imports: [
+    BrowserModule,
+    AppRoutingModule
+  ]
+
+Ex:- (app-routing.module.ts)
+  import { NgModule } from '@angular/core';
+  import { Routes, RouterModule } from '@angular/router';
+
+  import { Comp1Component } from './comp1/comp1.component';
+  import { Comp2Component } from './comp2/comp2.component';
+  import { Comp3Component } from './comp3/comp3.component';
+  import { Comp4Component } from './comp4/comp4.component';
+  import { Comp5Component } from './comp5/comp5.component';
+
+  const routes: Routes = [
+    {
+      path: '',   //default-navigation
+      component: Comp1Component
+    },
+    {
+      path: 'comp1',
+      component: Comp1Component
+    },
+    {
+      path: 'comp2',
+      component: Comp2Component
+    },
+    {
+      path: 'comp3',
+      component: Comp3Component
+    },
+    {
+      path: 'comp4',
+      component: Comp4Component
+    },
+    {
+      path: 'comp5',
+      component: Comp5Component
+    },
+    {
+      path: '**', //any missing navigation
+      component: Comp1Component
+    }
+  ];
+
+  @NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule { }
+
+= also import all component-classes used for links in this file
+Ex:-
+import { Comp1Component } from './comp1/comp1.component';
+...
+etc

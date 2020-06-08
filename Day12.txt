@@ -1,0 +1,208 @@
+==> Todays Topics:-
+=> Tuples in Typescript
+=> Classes in Typescript
+=> Programs
+
+==>>> Tuples in Typescript:::::
+= Tuple allows us to store collection of different type of data as single-unit
+
+= Syntax:
+var tup1 = [v1,v2,v3,...];
+
+= Example:
+var tup1 = [1001,"Sai",5.9];
+
+
+//Empty-tuple
+var tup2 = []; 
+tup2[0] = 101; 
+tup2[1] = "Ram";
+tup2[2] = 5.6;
+
+=> Accessing Tuple Values:
+= It is done with the help of indexes provided by each value in a tuple
+= Indexes are 0 to (n-1)
+Example, tup1[index]
+
+==> Tuple Operations:
+= A tuple supports operations like push, pop, length etc
+
+
+==> Updating Tuples:
+= Tuples are mutable which means you can update or change the values of tuple elements
+
+NOTE:
+mutable means org.data can be modified
+immutable means org.data cannot be modified
+
+
+==> De-Structuring a Tuple:
+= De-structuring means breaking up the structure of an entity
+
+NOTE:
+De-Structuring can also be done for arrays
+(Getting all the values of a tuple into variables)
+
+//Program
+(Program to declare and access the element of a tuple)
+
+
+
+====>>> Classes in Typescript::-
+= Typescript is Object Oriented Scripting Language
+= It supports classes, interfaces, inheritance etc concepts
+
+= A class is a Model for creating Objects (End-Products for Users)
+
+Def:-
+= A class is collection of data and function as single encapsulated unit
+
+[class = data(properties) + functions(methods)]
+
+
+=> How to define a class?
+= class is keyword to define a class
+Syntax:
+	class ClassName
+	{
+		Fields;		//data or variables or properties of an object
+		Functions;	//behavior of an object or methods/usage
+		Constructors; //allocates memory for objects & intializes
+											//fields
+	}
+
+Example:
+class Student
+{
+}
+
+=> Creating Objects:
+= "new" is the keyword using which we create an object of a class
+Syntax:
+	var objName = new ClassName(args,....);
+			
+=> Accessing the members:
+= .(dot) is the operator using which we can access fields and functions of a class
+= Example, obj.fields;
+			obj.func();
+
+
+//Program
+(Program to define a class and create objects for it)	
+
+NOTE:
+= For single-class, we can create any no.of objects
+
+
+=> Class Inheritance:
+= Typescript supports the concept of Inheritance
+Def:-
+= Acquiring Properties and Functions of Existing-Class into New-Class is known as Inheritance
+==Diagram==
+Existing-Class
+	|
+	|
+	|
+	|
+ New-Class
+
+(Parent/Super -----> Child/Sub classes)
+
+
+= "extends" is the keyword to perform Inheritance
+Syntax:
+	class ChildClass extends ParentClass
+	
+=*** Child-Class inherits all members of Parent-Class except private-member and constructors
+
+
+=> Types of Inheritance:
+1) Single (Single Parent-Class gives Single Child-Class)
+class A
+	|
+	|
+	|
+class B extends A
+
+2) Multiple 
+(2 or More Parent-Class gives Single Child-Class i.e,Not-Supported)
+class A		class B
+	\		/
+	 \	   /
+	  \   /
+class C extends A,B
+
+
+3) Multi-Level 
+(Extension of Single Inheritance, here Child-Class acts as Parent-Class for further Child-Class)
+class A
+	|
+	|
+	|
+class B extends A
+	|
+	|
+	|
+class C extends B
+
+
+//Program
+(Program to demo Inheritance in typescript classes)
+
+NOTE:
+= super is the keyword, which represents immediate Parent-Class
+
+
+=> Method Overriding in Inheritance:
+= Redefining Parent-Class method in Child-Class with same-name and same-signature 
+(i.e, No. of Para, Datatype of Para, Order of Para)
+
+
+NOTE:
+= Using super, we can refer Parent-Class members from Sub-Class members
+
+=> static keyword:
+= It can applied to data-members/fields of a class (also to functions)
+= These are common for all objects of a class (Retains value for all obj's)
+= Can be accessed with Classname (as well as object-name)
+Ex:
+	Classname.members
+	objName.members
+
+
+=> instanceof operator:
+= Check whether particular object belongs to a class or not
+= It returns true or false
+= It works like Relational Operator
+Syntax:
+	obj instanceof Classname
+	
+//Program
+(Program to demo. Method Overriding in Inheritance)
+
+//Program
+(Program to demo. static-members of a class)
+
+//Program
+(Program to demo. instanceof operator in a class)
+
+
+=> Data-Hiding or Access Modifiers:
+= Visibility of data-members/fields or methods of a class
+= Accessing one class members outside the class in another class
+= They are,
+1. public
+(A public-members are accessible universally. Members in a class are public by default)
+Ex: In Same-class, In Sub-class and Outside Class
+
+2. private
+(Private-members are accessible only within the class and accessing it outside the class, the compiler throws an error)
+Ex: In Same-class only
+
+3. protected
+(A protected-members is accessible in same-class and also in the child classes)
+Ex:
+Ex: In Same-class, In Sub-class
+
+//Program
+(Program to demo Access-Modifiers in typescript)

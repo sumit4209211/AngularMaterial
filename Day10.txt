@@ -1,0 +1,130 @@
+==> Todays Topics:-
+= Numbers & Strings in Typescript
+= Programs 
+
+= Typescript provides 2 predefined objects
+= They are Number and String
+= Using these 2 objects, we can work with Numbers & Strings
+
+==>>>Numbers in Typescript:::::
+= Typescript also support "Number" object same as Javascript
+
+Syntax:
+	var var-name = new Number(value);
+	
+= new operator allows use create Number object
+= Number obj contains 1 single numeric value	
+	
+	
+NOTE:
+= Any non-numeric value return NaN (Not-a-Number)
+
+
+=> Number object properties:
+1. MAX_VALUE (support upto 1.7976931348623157E+308)
+
+2. MIN_VALUE (supports upto 5E-324)
+
+NOTE:
+E means extended to the power of 10
+
+3. NaN (Not a number)
+
+4. NEGATIVE_INFINITY (less than MIN_VALUE)
+
+5. POSITIVE_INFINITY (greater than MAX_VALUE)
+
+NOTE:-
+Ex:
+var x = new Number(100);
+console.log(x.valueOf());
+valueOf() is used to get the value of number-object
+
+
+
+===>>>> Strings in Typescript:::::
+= String object is representation of collection of characters
+= "" (double-quotes) or '' (single-quotes) are used to represent string
+
+Syntax:(String-object)
+	var varname = new String(string);
+
+
+NOTE:
+= Advantage of storing a number or string in form of objects is we can perform all pre-defined operations easily
+
+= operations ---> methods or functions
+
+= Object is nothing but instance of a class
+= Every object has properties(data) & methods(functions)
+
+
+=> String object properties:
+= length: it gives length string
+
+Ex:
+var ss  = new String("Hello");
+console.log(ss.length); ------> 5
+
+
+=> String methods:
+= charAt(index) :
+Returns the character at the specified index.
+
+NOTE:
+"Welcome"
+indexes ---> 0 to length-1
+W (0)
+e (1)
+l (2)
+c (3)
+o (4)
+m (5)
+e (6)
+
+
+= charCodeAt(index) :
+Returns Unicode value of the character at the given index. 
+
+NOTE:
+A-Z (65-90)
+a-z (97-122)
+0-9 (48-57)
+
+= concat(s1,s2,....) :
+Combines the text of two or more strings and returns a new string.
+
+= indexOf(str,index) :
+Returns the index position of given string
+
+= lastIndexOf(str,index) :
+Returns the last-index position of given string
+
+NOTE:-
+returns -1 if not found 
+
+
+= replace(oldstr,newstr) :
+Used to replace the matched old-string with a new-string.
+
+= slice(begin,end) :
+Extracts a portion of a string 
+
+= split(separator, limit) :
+Splits a String object into an array of strings by separating the string into substrings.
+
+= substr(start-index,length) :
+Returns the characters in a string beginning at the specified location through the specified number of characters.
+
+= substring(start-index,end-index) :
+Returns the characters in a string between two indexes into the string.
+
+= toLowerCase() :
+Returns the calling string value converted to lower case.
+
+= toUpperCase() :
+Returns the calling string value converted to uppercase.
+
+
+//Program
+(Program to demo different methods of String object)

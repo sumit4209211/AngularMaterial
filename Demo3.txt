@@ -1,0 +1,88 @@
+==> Angular 8 with Free Typescript Demo Session-3 :-
+=> What is Angular?
+=> 3-Tier Architecture/Model?
+=> What is Typescript?
+=> Angular Building Blocks
+
+
+=> Angular Sessions:
+= 50+ Sessions
+= 1st Week to 10-days (Free typescript)
+= Daily timings (8PM)
+= Daily 1-hour
+----------------------------
+= Every session is recorded
+(Recording will be provided to Students)
+= For Every Sessions Notes or Material will be provided
+
+NOTE:
+= Recording Videos, Notes or Material will be given on daily basis
+(Sharing with Google-Drive)
+= Gmail ID : "srikanth.sai.online@gmail.com"
+
+=> What is Angular?
+= Client-side Typescript Framework for developing dynamic Web-Apps
+= Now,
+Web -> Internet
+App -> Application
+(Websites) Ex: www.gmail.com, www.fb.com, www.yahoo.com
+
+= Dynamic Apps
+(Data/Info in a website changes w.r.t 3-para)
+a) Time	(News-Update)
+b) Location (Weather-Report)
+c) User (Gmail/Facebook)
+
+
+=> 3-Tier Arch:-
+= For developing any website, we use 3-tier Arch (Model)
+client<---->Server<---->DB
+==Diagarm==
+
+= Client (browser)
+(Display a webpage)
+= For developing a webpage in website, we use
+HTML/CSS/Javascript and other scripting libraries
+
+NOTE:
+HTML (display the data)
+CSS (stylish of data)
+Javascript (programming)
+
+
+==>Typescript:-
+(Better Programming when compared to Javascript)
+= Typescript is superset of Javascript
+= Developed by Microsoft
+= It is strictly typed-language and supports data-types/classes/interfaces/inheritance/modules/Lamba-functions etc
+= Advantage, "more programming capability" in HTML-webpage
+
+NOTE:
+Every Browser (Google Chrome, Mozilla Firefox, Opera, Safari)
+Browsers supports only HTML/CSS/Javascript
+Typescript in Browser?
+Transpilation (convert typescript into javascript)
+
+***Less Coding with More functionality in Webpage***
+
+
+==> Building Block of Angular:-
+= Components (Everything is webpage is a component)
+==Diagram==
+= Modules (Grouping of related coding)
+= Templates (views by HTML/CSS)
+= Decorators (Extra Information to Angular Framework)
+= Services (Reusable coding in Angular)
+
+
+=> Pre-requisites for Angular?
+= HTML
+= CSS
+= Javascript/Typescript
+(Free Typescript for 1-week to 10-days)
+
+
+
+
+
+

@@ -1,0 +1,106 @@
+==> Angular 8 with Free Typescript Demo Session-1 :-
+=> What is Angular?
+=> Where we use Angular?
+=> What is Typescript?
+=> What is Framework?
+=> Why Angular?
+
+
+=> What is Angular?
+= Client-side Typescript Framework for developing dynamic Web-Apps
+= Now,
+Web -> Internet
+App -> Application
+(Websites) Ex: www.gmail.com, www.fb.com, www.yahoo.com
+
+= Dynamic Apps
+(Data/Info in website changes w.r.t 3-para)
+a) Time	(News-Update)
+b) Location (Weather-Report)
+c) User (Gmail/Facebook)
+
+
+NOTE:
+AngularJS and Angular?
+= AngularJS is Javascript Framework
+= Angular is Typescript Framework
+
+= AngularJS is not 1st version of Angular
+= Angular is separate Framework and not related to AngularJS
+
+= Java (OOP)
+= .Net (OOP)
+(OOP used to developing computer apps)
+
+= Latest version of Angular is 8 (May 28th, 2019)
+
+=> 3-Tier Arch:-
+= For developing any website, we use 3-tier Arch (Model)
+client<---->Server<---->DB
+==Diagarm==
+
+= Client (browser)
+(Display a webpage)
+= For developing a webpage in website, we use
+HTML/CSS/Javascript and other scripting libraries
+
+NOTE:
+HTML (display the data)
+CSS (stylish of data)
+Javascript (programming)
+
+Typescript (superset of Javascript)
+(Better Programming when compared to Javascript)
+
+=> Typescript:-
+= Typescript is superset of Javascript
+= Developed by Microsoft
+= It is strictly typed language and supports data-types/classes/interfaces/inheritance/modules/Lamba-functions etc
+= Advantage, "more programming capability" in HTML-webpage
+
+
+=> Angular is a typescript Framework?
+= Framework means (Runtime-Library + Runtime Environment)
+Library (Pre-defined Modules/Classes/Functions)
+Environment (execute our live-coding as per development)
+
+
+=> Angular is an "application-platform"
+(multiple-technologies(UI) can be used for developing dynamic web-apps)
+= It is developed by Google+supports MS Typescript
+= Completely and Newly developed by same team of AJS
+= Main use to develop SPA
+(Ex: www.gmail.com)
+
+
+=> Angular Sessions:
+= 50+ Sessions
+= 1st Week (Free typescript)
+= Daily timings (8PM)
+= Daily 1-hour
+----------------------------
+= Every session is recorded
+(Recording will be provided to Students)
+= For Every Sessions Notes or Material will be provided
+
+NOTE:
+= Recording Videos, Notes or Material will be given on daily basis
+(Sharing with Google-Drive)
+= Gmail ID : "srikanth.sai.online@gmail.com"
+
+
+=> Pre-requisites for Angular?
+= HTML
+= CSS
+= Javascript/Typescript
+(Free Typescript for 1-week to 10-days)
+
+
+
+
+
+
+
+
+
+

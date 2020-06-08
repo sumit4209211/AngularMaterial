@@ -1,0 +1,149 @@
+==> Todays Topics:-
+= Flow of Execution of Typescript Program
+= .ts file & .js file
+= Basics & Fundamentals of Typescript
+= Steps for Writing & Execution Typescript Program
+= Identifiers & 6-Rules
+= Keywords in Typescript
+= Comments in Typescript
+= OOP in Typescript
+
+==> Flow of Execution of Typescript Program:-
+==Diagram==
+
+.ts file :-
+= It is extension for typescript file
+
+.js file:-
+= It is extension for javascript file
+
+NOTE:
+Compiling (Transpiling) is done by "Transpiler"
+(a small piece of software)
+(.ts -----> .js file)
+
+.js file is Run by NodeJS to give Output
+(without any browser)
+
+Node JS provides Runtime Environment for executing typescript program
+
+
+==> Basic and Fundamentals of TypeScript:-
+= In TypeScript, we have below entities(items/units),
+	= Comments
+	= Statements & Expressions
+	= Variables
+	= Functions
+	= Modules
+	
+//Program 
+(Program to display "Welcome Message" on Console or Terminal screen)
+
+==> Steps for Writing, Compiling and Executing TypeScript Programs:::-
+Step1 : Open VS Code IDE and type your program and save the program with .ts as extension
+
+Step2: Open the Command Prompt or Terminal
+
+Step3: Use the following command for compiling
+		[tsc Demo1.ts]
+		//On successful compilation, we get "Demo1.js" file
+		
+Step4: To Run, use the following command
+		[node Demo1.js]
+
+
+NOTE::: (Compiling multiple-files at a time)
+[tsc Demo1.ts, Demo2.ts, Demo3.ts]
+
+=> tsc stands for typescript-compiler (Transpiler)
+
+
+==> Identifiers in typescript:-
+= Identifying something uniquely in a typescript program are known as identifiers. They are as follows,
+	- variables
+	- functions
+	- classes
+	- constructors
+	- modules etc.
+
+=6-Rules are as follows,
+	i) Begins only with alphabets (upper/lower)
+	ii) No Special characters except _ or $
+	iii) No keywords as Identifiers
+	iv) Should be unique
+	v) They are case-sensitive
+	vi) No Spaces in between and use digits at the last
+
+==> Typescript Keywords::::
+= Keywords are special words or reserved words with special meaning and usage in a program
+They are as follows,
+break			as				any				switch
+case			if				throw			else
+var				number			string			get
+module			type			instanceof		typeof
+public			private			enum			export
+finally			for				while			void
+null			super			this			new
+in				return			true			false
+any				extends			static			let
+package			implements		interface		function
+new				try				yield			const
+continue		do				catch
+
+
+NOTE:::
+1) Whitespaces and line-breaks are ignored while compilation
+2) Case-sensitive language
+3) Semicolons are optional (use for multiple-stmts in single line)
+
+
+=> console.log("....");
+console means output-screen or termial or command-prompt or shell
+log (display or put on console)
+
+
+==> Comments in TypeScript::::-
+= Provides description of a program. 
+= They are ignored by compiler
+	a) Single-line comment (//.........)
+	b) Multi-line comment (/*........................*/)
+	
+Advantage,
+= Easy understanding of Program
+
+
+==> Object Oriented Programming in TypeScript:-
+= Typescript is OOP
+= OOP is based on Real-Life situations
+= Program with collection of objects and its methods
+= Typescript supports the following,
+	i) Objects 
+	(End-Product used by End-User, it has State-Behavior-Identity)
+	Ex: Mobile-Phone
+		state -> Features
+		behavior -> Usage (Calling/SMS/Internet)
+		identity -> Apple iPhone-X
+	
+	ii) Classes 
+	(Model/Prototype/Blueprint before creating an actual object)
+	Ex: House-Contruction (Blueprint)
+	
+	
+	iii) Methods 
+	(Behavior of object i.e, functionality/usage of End-Product)
+
+//Program 
+(Program to define a class, a method and define its object to call the method)
+
+
+
+
+
+
+
+
+
+
+
+
+

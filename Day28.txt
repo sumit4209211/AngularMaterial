@@ -1,0 +1,117 @@
+==> Todays Topics:-
+= Events in Angular
+= Event-Binding in Angular
+= Programs on Event-Binding
+
+==> Events in Angular:-
+= Event is a communication between a user and HTML Webpage
+
+= In Javascript, we have some events such as,
+onClick=""
+onChange=""
+onKeyPress
+onKeyDown
+onMouseOver
+onMouseEnter
+onMouseExit
+onFocus
+onBlur
+onSubmit
+onScroll
+...etc
+
+
+= When these events occur in webpage, we perform some operation or call a Javascript/Typescript function
+
+= In Angular, we process or work with these events as "Event-Binding" Mechanism (Event-Handling)
+
+
+NOTE:-
+= Here in Event-Binding, we send or flow the information from HTML to Component-class
+= Event occurs in view (.html) & we perform some action in component-class (.ts)
+= (.html) ----> (.ts)
+
+= For this we use () Event-Binding operator
+Ex:
+(click) = "f1()"
+(mouseover) = "f2()"
+etc...
+
+= All JS/TS events work in Angular but without on-prefix
+Ex:-
+	onclick ====> (click)="f1()"
+	oninput ====> (input)="f2()"
+
+= Finally, this whole process in known as "Event-Handling Mechanism"
+
+
+Ex:- (comp33 - "demo-app")
+cmd> ng g c comp33
+<div>
+    <p id="p1" (mouseover)="f1()" (mouseout)="f2()">
+        {{msg}}
+    </p>
+</div>
+
+(and)
+//Add in component-class(.ts file)
+
+  msg="Bring cursor here...";
+    
+  f1()
+  {
+    console.log("Your Cursor is on Paragraph");
+    this.msg="Your cursor is on Paragraph";
+  }
+  f2()
+  {
+    console.log("Your Cursor is out of Paragraph");
+    this.msg="Your cursor is out of Paragraph";
+  }
+
+
+NOTE:
+1)
+= $event is a special-variable provided by Angular Framework for every webpage for Events
+
+= It is an object in our component-class
+
+= This object can be used as parameter to our Event-Handling function and get info. about our event such as (target,type,(x,y)coordinates)
+Ex:-
+event.pageX
+event.pageY
+---------------
+event.target.value
+----------------
+event.type
+
+
+2)
+= When event-occurs instead of calling function, we can also perform operations directly
+Ex: (click)="x=x+1;"
+= Here instead of calling any-function, we can perform operation directly
+
+
+//Program (comp44 ---> "demo-app")
+(Create a webpage to perform likes and dislike count in Angular using Event-Binding)
+
+cmd> ng g c comp44
+
+Ex:-
+<button (click)="count = count + 1">Increment</button> 
+{{count}}
+<button (click)="count = count - 1">Decrement</button> 
+(and)
+count=0;
+
+
+NOTE:
+1) Ternary/Conditional Operations
+Syntax:
+	(expr1)?(expr2):(expr3)
+= if (expr1) is true then (expr2) is executed
+= if (expr1) is false then (expr3) is executed
+
+//Program
+(Create a webpage to perform (mouseover) and (mouseout) events in Angular)
+

@@ -1,0 +1,136 @@
+==> Todays topics:-
+= What are Modules in Angular? (Theory)
+= Performing Data-Binding in Angular
+= What is Interpolation & Binding-Expression
+= *ngFor directives (foreach loop in Angular)
+
+
+
+==>> Modules in Angular:-
+= Module grouping of components, directives, pipes, and services etc into single-unit
+
+= In website development, header, footer, left, center and the right sections become part of a module
+Ex: User-Login, Admin-Login, Guest-Login etc
+
+NOTE:-
+= Technically it is known as Modular Programming
+
+
+=> How to define a module?
+= NgModule is used to represent a module in Angular-App
+= When we create new application in CMD, "ngmodule" is created in "app.module.ts" by default
+= It is also known as Root-Module (AppModule)
+
+= Open "app.module.ts"
+NOTE: 
+= NgModule should be imported as follows,
+	import { NgModule } from '@angular/core';
+= Module description is as follows,
+= Starts with @NgModule (Decorator, provides info to Angular-Server), it has object with properties such as, declarations, imports, providers and bootstrap	
+
+
+= declarations, it is an array of created components.
+If new component is created, it is first imported and then included in declarations
+
+= imports, it is an array of modules i.e, dependent modules used in our app.
+Such modules can be used by other components of our app.
+We can add more modules separated by ,(comma)
+Example,
+imports: [
+    BrowserModule,
+	FormsModule
+  ]
+
+
+= providers, it includes the services created
+
+= bootstrap, main component for starting the app execution
+
+
+==>> Data-Binding in Angular:-
+= Data-Prop defined in Component-class and such data is used in view(.html page), it is done with data-binding feature
+
+= This feature is available in AngularJS, Angular2 to 8
+= For data-binding we use {{}} (Binding-Expression)
+= It is used to display data-prop from component-class into view (.html)
+= This process is called "Interpolation"
+
+NOTE:
+= data-prop(variables) declared in Component classes(app.component.ts) and be used directly in (app.component.html) file using data-binding {{}} feature
+
+
+//Program (comp4)
+(Create a new-component comp4 and add a array-variable to comp4.component.ts class and use in HTML-file(comp4.component.html) to display such data)
+
+NOTE:
+1)
+cmd>ng g component comp4 (files created)
+src/app/comp4/comp4.component.html
+src/app/comp4/comp4.component.spec.ts
+src/app/comp4/comp4.component.ts
+src/app/comp4/comp4.component.css
+src/app/app.module.ts (main component file is updated with new-component)
+
+2)
+Now, add the following element in app.component.html
+<app-comp4></app-comp4>
+
+3)
+GOTO, comp4.component.ts file and inside the class, add a new array-variable
+days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", 
+            "Friday", "Saturday"];
+
+4)
+GOTO, comp4.component.html and add the following code;
+<div> Weekdays :
+   <select>
+      <option *ngFor="let i of days">{{i}}</option>
+   </select>
+</div>			
+
+NOTE:-
+= *ngFor is directive from Angular
+= Directive is nothing by Attribute according to HTML
+= Directive provides some extra-functionality to HTML-elements
+
+= Here *ngFor provides looping activity for html-element in view
+
+
+===> *ngFor in Angular:
+= for-loop in Angular is used to iterate over given array of elements
+Syntax:
+	*ngFor = "let <variable> of <array>"
+	
+= Each time array-value is assigned to variable and variable-value can be used in HTML as {{variable}} binding expression
+
+
+NOTE:
+= variable declared in Comp4Component class of comp4.component.ts file can be used directly in comp4.component.html using {{}} (binding expression)
+
+=> Using {{}} binding-expression in different ways:-
+Ex:
+	Result : {{2+4}} <br />
+    Result : {{a+b}} <br />
+    Name : {{"Sai"}} <br />
+    Fullname : {{"Sai"+"Ram"+"Kumar"}} <br />
+    Username : {{uname}}  <br />
+    Uname(Upper-case) : {{uname.toUpperCase()}} <br />
+    Uname(Lower-case) : {{uname.toLowerCase()}} <br />
+    Uname(Length) : {{uname.length}} <br />
+
+    SUM-function : {{sum()}} <br />
+	
+NOTE:-
+= In all these cases, using {{}} (Binding-Expression), we got data or result of data from function from component-class into the view(.html)
+
+
+=> What we cannot do in Binding-Expression {{}}?
+Ex:
+	{{sum=a+b}}
+
+NOTE:
+= Developer-Options in Browser is done by F12
+= Here we can check for Scripting errors
+= Here we can also display data/info from scripts
+Ex:
+	console.log(data/info);

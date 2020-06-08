@@ -1,0 +1,230 @@
+==> Todays Topics:-
+= Template Reference Variables
+= Structural Directives in Angular
+(*ngIf, ngSwitch, *ngFor)
+= Programs
+
+
+==> Template Reference Variables:-
+= It is a variable pointing/referring/representing a particular html-element with unique-name
+
+= It is used with #<<ref-var-name>>
+Ex:
+#t1
+#pwd1
+#txt1
+= It is use like HTML-attribute in webpage
+
+= Ex:
+<input type="text" #t1 ......./> (t1 is ref to text-box)
+<ng-template #ifPart></ng-template> (ifPart is ref to ng-temp)
+<ng-template #elsePart></ng-template> (elsePart is ref to ng-temp)
+
+= Here t1,ifpart,elsepart are Template-Reference-Variables, referring to HTML Input Controls
+
+
+=> How to use it?
+= Template-Ref-Var can be used like DOM-ref-var (in JS)
+= It is used to get value or attributes of that particular HTML element uniquely
+Ex:
+	t1.value ==> it gives text-box entered value
+	<span *ngIf="boolean; then ifPart else elsePart></span>
+	<ng-template #ifPart>True-Part is executed</ng-template>
+	<ng-template #elsePart>False-Part is executed</ng-template>
+
+= Such values can be passed to functions as para
+Ex:
+	(click)="f1(t1.value)"
+
+
+//Program (comp77 ---> demo-app)
+(Create a webpage to work with template-reference-variables in Angular) 
+[Login Credentials - Username & Password]
+Ex:-
+<div>
+    Enter your name :
+    <input type="text" #t1 /> <br /><br />
+    <button (click)="f1(t1.value)">Click-Here</button>
+    <br /><br />
+    <span>{{msg}}</span>
+</div>
+<hr />
+<fieldset>
+    <span [style.color]="clr">{{msg2}}</span>
+    <br /><br />
+    Enter Username :
+    <input type="text" #uname (focus)="f3(uname)" (input)="f4(uname)"/><span>{{msg3}}</span>
+    <br /><br />
+    Enter Password :
+    <input type="password" #pwd />
+    <br /><br />
+    <button (click)="f2(uname,pwd)">Login</button>
+</fieldset>
+(and in comp-class)
+Ex:-
+msg="";
+  msg2="";
+  msg3="";
+  clr="";
+  f1(val)
+  {
+    this.msg="Welcome : "+val;
+  }
+  f2(uname,pwd)
+  {
+    if(uname.value=='sai' && pwd.value == 'ram')
+    {
+      this.msg2="Login Successful";
+      this.clr="Green";
+    }
+    else{
+      this.msg2="Invalid Username/Password...";
+      this.clr="Red";
+    }
+  }
+
+  f3(uname)
+  {
+    if(uname.value.length==0)
+    {
+      this.msg3="*Enter Username";
+    }
+  }
+
+  f4(uname)
+  {
+    if(uname.value.length<6 || uname.value.length>15)
+    {
+      this.msg3="*Min 6-chars & Max 15-chars";
+    }
+    else{
+      this.msg3="*Username is OK";
+    }
+  }
+
+
+NOTE:
+= To work with HTML attributes using Temp-Ref-Var, we use the following method
+Ex:
+	t1.getAttribute('type') //returns the value
+	t1.setAttribute('disabled','false');
+Ex:
+  f1(t1)
+  {
+    this.msg="Welcome : "+t1.value;
+    console.log(t1.getAttribute('type')); 
+    console.log(t1.setAttribute('disabled','true'));
+    t1.style.background="lightblue";
+  }
+  
+  
+  
+==> Structural Directives in Angular:-
+= Angular supports 3 types of Structural-Directives
+= They are,	
+	i) *ngIf
+	ii) ngSwitch
+	iii) *ngFor
+
+= These directives execute a block of HTML-elements based on condition of expression
+
+
+i) *ngIf :-
+= It executes a block of HTML-elements based on true or false boolean value
+
+Ex:
+	<h4 *ngIf="boolean">	
+		...true for execute...
+	</h4>
+
+	<h4 *ngIf="boolean; else false">	
+		...true for execute...
+	</h4>
+	<ng-template #false>False for execute</ng-template>
+
+	<div *ngIf="boolean; then truePart else falsePart">	
+	</div>
+	<ng-template #truePart>False for execute</ng-template>
+	<ng-template #falsePart>False for execute</ng-template>
+	
+	
+NOTE:
+<ng-template #temp-ref-var>
+= This Special Angular Element allows us to define a block of HTML-elements
+= It is used with #Temp-Ref-Var
+= Such Temp-Ref-Var, can used to evaluate *ngIf conditional blocks i.e, true or false block
+	
+  
+  
+ii) ngSwitch (directive):-
+= This directive works like a switch-case control structure in Programming
+
+= It is used to evaluate/execute a block of HTML elements based on given expression & matching case-values
+
+Syntax:-
+switch(expression)----->[ngSwitch]="expression/value"
+{
+	case 1:		--->	*ngSwitchCase="value1"
+		....
+		break;
+	case 2:		--->	*ngSwitchCase="value2"
+		....
+		break;
+	case 3:		--->	*ngSwitchCase="value3"
+		....
+		break;
+	....
+	....
+	default:	--->	*ngSwitchDefault
+		.....
+}
+
+//Program
+(Create a webpage to use ngSwitch directive in angular)
+Ex:-
+<div [ngSwitch]="cc">
+    <p *ngSwitchCase="'Red'" [style.color]="cc">Given Color is Red</p>
+    <p *ngSwitchCase="'Green'" [style.color]="cc">Given Color is Green</p>
+    <p *ngSwitchCase="'Blue'" [style.color]="cc">Given Color is Blue</p>
+    <p *ngSwitchDefault>No Color is Given</p>
+</div>
+(and in comp-class)
+cc="Blue";  
+
+
+//Program
+(Create a webpage top display a paragraph in different alignments using 'ngModel' in Angular)
+Ex:-
+<input type="radio" name="align" [(ngModel)]="xx" value="left">Left
+<input type="radio" name="align" [(ngModel)]="xx" value="Right">Right
+<input type="radio" name="align" [(ngModel)]="xx" value="center">Center
+<p [style.border]="'2px Solid Brown'" [align]="xx">This is my Para1</p>
+
+
+iii) ngFor (directive):-
+= Mainly used for arrays or collection of data
+Ex:
+	<p *ngFor="let var of array/coll"> //let is keyword
+		{{var}}
+	</p>
+	
+= Each each element, html-element is generated by angular in webpage
+
+NOTE:-
+= Other options with *ngFor are,
+i as index (0,1,2,3,4,....)
+first as f	(true for first-index)
+last as l	(true for last-index)
+odd as o	(true for odd-indexes)
+even as e	(true for even-indexes)
+
+
+NOTE:-
+=> Default-port for angular/cli is 4200. 
+However we can change this using following command
+
+cmd>ng serve --host 0.0.0.0 --port 4028/4208 --open
+
+=> Under Project Application Folder (src), we can use styles.css file, to apply Global CSS for Root-Module(AppModule), Root-Component(AppComponent) & it's Child-Components(comp1/comp2/...etc)
+
+

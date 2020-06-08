@@ -1,0 +1,220 @@
+==> Todays Topics:-
+= Services in Angular
+= Dependency Injection
+= Programs
+
+=>> Services in Angular:-
+= Services are Reusable components of our application
+= Using a particular same-code in multiple pages (multiple-comp)
+(Reusability of same-code)
+
+Points:-
+= Service is a Reusable component in our Angular App
+i.e, Write/Create Once & Use it in any Comp.
+
+= A service is like a common-logical-unit for multiple components in our application
+
+= A service is a typescript class, which may contain properties(data-mem), constructor and user-defined functions
+
+= Such members of a service-class can be used in any component of our application by using a special mechanism known as "Dependency-Injection"
+
+
+=> Dependency-Injection:
+It is a mechanism provided by Angular Framework, by which dependent services are made available to our different components readily without instantiating them
+
+=> Why we require Dependency-Injection?
+= It is mechanism which makes our application more flexible and efficient
+
+
+//Program (spa-app)
+(Program to create a new service and use that service in multiple components)
+
+
+Steps::
+=>> How to create a service?
+cmd>ng g service <<myservice>>
+= Following files are created,
+src/app/myservice.service.spec.ts
+src/app/myservice.service.ts (new-class is created)
+
+=>>"myservice.service.ts" file:-
+= "Injectable" interface is imported from '@angular/core' pkg
+= Provides @Injectable() (decorator)
+(this decorator provides info to angular-framework that we can use this service in any comp w.o creating object of this service)
+= "MyserviceService" class is created
+
+
+=>> Now open "app.module.ts" file:- (Root-Module)
+= import the following statment,
+import { MyserviceService } from './myservice.service';
+
+= add the providers,
+providers: [MyserviceService]
+
+NOTE::
+import the Service with the class-name and the same class is used in the providers
+
+==================================================
+*** Modules are added to imports-array
+*** Components,Pipes,Directives are added to Declarations-array
+*** Services are added to providers-array
+==================================================
+
+
+=> Now goto "myservice.service.ts" file:-
+= In "MyserviceService" class
+= Create a new service(means a function)
+Example,
+showDate() 	//create a function and returns the date
+{
+    let dd = new Date();
+    return dd;
+}
+
+
+=> How to use this in different components?
+1) app.component.ts
+import {MyserviceService} from './myservice.service';
+
+//Use the following code in "AppComponent" class
+date1;
+constructor(private service: MyserviceService) 
+{}
+=** This `process is known as Dependency-Injection
+= Here private service variable is injected to our component by Angular-Framework
+= Such object(service) is ready to use in any function of our component
+
+ngOnInit() 
+{
+	this.date1 = this.service.showDate();
+}
+
+NOTE:-
+service-var of constructor acts as a data-prop in our component
+
+
+= About constructor() method
+Constructor is used create object of our component and intialize data-prop
+
+= About ngOnInit() method
+It is 1st method which executed auto. after the constructor once object of comp-class is created
+
+NOTE:
+= ngOnInit() gets invoked auto in any component created
+= date is fetched from the service(showDate()) & stored in date1 variable
+= To fetch more details of the service, we need to first include the service in the app.component.ts file
+
+//In app.component.html, use the following code,
+<hr />
+<h2 style="text-align:center">Using Services</h2>
+<h3>
+  <p>***In main-component using a service</p>
+  <p>{{date1}}</p>
+</h3>
+<hr />
+
+
+2)"comp1.component.ts" file
+Ex:- (comp1/comp2/comp3./comp4/comp5)etc in spa-app
+import { MyserviceService } from './../myservice.service';
+import { MyserviceService } from '../myservice.service';
+
+//Use the following code in "Child-Component" class
+date1;
+constructor(private service: MyserviceService) 
+{}
+ngOnInit() 
+{
+	this.date1 = this.service.showDate();
+}
+
+NOTE:
+= ngOnInit() gets invoked auto in any component created
+= date is fetched from the service(showDate()) & stored in date1 variable
+
+//In comp1.component.html, use the following code,
+<hr />
+<h2 style="text-align:center">Using Services in comp1</h2>
+<h3>
+   <p>{{date1}}</p>
+</h3>
+<hr />
+
+NOTE:-
+= We can also apply date pipes (|)
+
+
+3) Similarly, use the same coding in remaining component files (comp1/comp2/comp3/comp4/comp5) --> (comp1.component.ts to comp5.component.html)
+
+
+
+***==> Service property (data-member modifications)::::::
+= Any service-property which is modified in any particular component, the same is reflected in other components too
+
+Steps:
+1) Create a variable(property/data-member) in your service & use that in main-component and other components(new-comp/comp1/comp2/comp3/comp4)
+= Goto "myservice.service.ts" file
+= In "MyserviceService" class, add the variable,
+	servicevar = "This is Service Variable";
+
+
+2) Change the service-property in main-component and check it is reflected in other components
+= Goto "app.component.ts" file
+= In "AppComponent" class, add a new-variable
+	appcompvar;
+= In ngOnInit(),
+Ex:-
+ngOnInit()
+  {
+    this.date1 = this.service.showDate();
+    //this.appcompvar=this.service.servicevar;
+	console.log(this.service.servicevar);
+    this.service.servicevar="Root-comp changed service variable";
+    this.appcompvar=this.service.servicevar;
+	console.log(this.service.servicevar);
+  }
+
+= In app.component.html
+Ex:-
+<h3>Service Var : {{appcompvar}}</h3>
+
+NOTE:
+= Finally when AppComponent class is executed, 
+"This is Service Variable" is displayed on console & 
+also it is changed to "Root-comp changed service variable"
+
+
+3) Goto Child-Component classes, add the following content,
+Ex:- (Comp1Component)
+	newcompvar;
+	newcompvar = "Comp1-Component Changed Service-Var";
+	
+	ngOnInit() 
+	{
+	this.date1 = this.service.showDate();this.date1 = 	this.service.showDate();
+	console.log(this.service.servicevar);
+    this.service.servicevar= this.newcompvar;
+    console.log(this.service.servicevar);
+	}
+	
+NOTE:
+= When Comp1Component(child) is executed, 
+"Comp1-Component Changed Service-Var"; is displayed on console & also displays the new modified value of 'sericevar' as "Comp1-Component changed Service-Var"
+
+= In app.component.html,
+(code at the last)
+<hr />
+<h3>Service Var : {{f1()}}</h3>
+
+= In app.component.ts,
+  f1()
+  {
+    return this.service.servicevar;
+  }
+= Here we can see the msg as "Comp1-Component changed Service-Var"
+
+NOTE:-
+= Finally, when changes are done to service-properties, they are reflected/updated to all the components where we are using them
+	
+	
+	

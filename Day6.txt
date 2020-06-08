@@ -1,0 +1,142 @@
+==> Todays Topics:-
+= Bitwise Operators & Program
+= Decision Making in Typescript 
+(Branching & Looping)
+= Program on Branching Decision Making Stmts
+
+==>> Bitwise Operators:
+= They are used to perform operations on bit-levels of given values. (Binary Value)
+They are,
+& (Bitwise AND)
+| (BitWise OR)
+^ (Bitwise XOR)
+~ (Bitwise Not)	
+<< (Left Shift)
+>> (Right Shift)
+
+//Program
+
+
+
+===>>>>> Decision Making in Typescript:::::
+= They are also known as Control-Structures
+= Used to control or execute a block of statements based on a condition
+= They are of 2 types
+	A) Branching CS
+	B) Looping CS
+	
+A) Branching CS are as follows,
+i) if statement
+ii) if-else statement
+iii) else-if statement
+iv) nested-if statement
+v) switch statement
+
+NOTE:
+Branching CS executes a Block of code 0 or 1 time only
+
+
+i) if statement
+= Executes a block of statements based on a given condition
+= Syntax:
+	if(boolean-expr)
+	{
+		//executes if condition is true...
+	}
+	//false, come to next-stmt after if structure
+
+//Program
+(Program to demo if-statement)
+
+NOTE:
+if your CS body has only 1-stmt then {} are optional
+
+
+ii) if-else statement
+= Executes a block of statements based on a given condition either true-block or false-block
+= Syntax:
+	if(boolean-expr)
+	{
+		//executes if condition is true...
+	}
+	else
+	{
+		//executes if condition is false...
+	}
+
+//Program
+(Program to demo if-else statement)
+
+
+iii) else-if ladder statement
+= Executes a block of statements based on a given condition for true-blocks and if no-condition satisfies then false-block is executed
+= Only 1 true-block is executed and control comes out of the control-structure
+
+= Syntax:
+	if(condition1)
+	{
+		//executes if condition1 is true...
+	}
+	else if(condition2)
+	{
+		//executes if condition2 is true...
+	}
+	else if(condition3)
+	{
+		//executes if condition3 is true...
+	}
+	....
+	....
+	else
+	{
+		//executes if NO-condition is true...
+	}
+
+//Program
+(Program to demo else-if ladder statement)	
+
+
+iv) nested-if statement
+= Executes a block of statements based on outer if-condition and as well as inner if-condition
+
+= Syntax:
+	if(condition1)
+	{
+		if(condition2)
+		{
+			//executes if both condition1 & condition2 are true...
+		}
+	}
+	
+//Program
+(Program to demo nested-if statement)	
+
+
+v) switch statement:
+= The switch statement evaluates an expression, matches the expression’s value with case-values, and executes statements associated with that case
+= If no case-value matches then last default-case is executed
+
+= Syntax:
+switch(variable_expression) 
+{ 
+   case value1: 	//accepts only constant-value
+   { 
+      //statements; 
+      break; 
+   } 
+   case value2: 	//values are unique in every-case
+   { 
+      //statements; 
+      break; 
+   } 
+   ......
+   ......
+   default: 		//default is optional
+   { 
+      //statements; 
+      break; 
+   } 
+} 
+
+//Program
+(Program to demo. switch-case control-structure)

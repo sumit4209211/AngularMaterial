@@ -1,0 +1,133 @@
+==> Todays Topics:-
+= Datatypes in Typescript
+= Variables in Typescript
+= Program using Datatypes & Variables
+
+
+==> Datatypes in Typescript:-
+= Data means information
+= type means which info?
+
+Def:-
+= It represents which type of data is accepted, stored, processed in a program
+
+= Classification:-
+	i) any (super-type of all data-types)
+	ii) Built-in (number,string,boolean,void,null,undefined)
+	iii) User-defined (arrays,classes,interfaces)
+
+
+i) any 
+= It is super-type of all data-types
+= It is dynamic type
+= Type checking is not done for this type
+
+ii) Built-in
+= number 
+(accepts both integers and floating/fractional values)
+Ex: 9,100,5.6,15.66
+
+= string 
+(accepts collection of characters)
+Ex: "hello", "welcom to angular" (space is 1-char)
+
+= boolean 
+(accepts true or false)
+Ex: true/false
+
+= void 
+(used as function return-type i.e, function returning no-value)
+
+= null 
+(nothing or no-value, used to represent object without any value)
+
+= undefined (represents uninitialized variables)
+
+
+iii) User-defined
+= Dealt in respective chapters
+Ex: Arrays, Classes, Interfaces
+
+
+==> Variables in Typescript:-
+= Variable is used to store a value in a program using datatypes
+
+=> Syntax:
+"var" is the keyword to declare variables
+
+i) var <<var-name>> : <<data-type>> = value;
+Example,
+	var name : string = "Sai";
+	
+	
+ii) var <<var-name>> : <<data-type>>;
+Example,
+	var name : string; //value is "undefined"
+
+
+iii) var <<var-name>> = value;
+Example,
+	var name = "Sai"; //data-type is string based on value given
+	
+	
+iv) var <<var-name>>;
+Example,
+	var name; //data-type is "any" and value is set to "undefined"
+
+//Program
+(Program to declare variables and its values and display them on Console)
+
+
+NOTE:
+//var num : number = "Hello"; 
+This stmt generates compilation-error because string-value is assigned to number-type variable
+
+==>>> Type Assertion:-
+= Converting one data-type value into another is known as Type-Assertion
+
+Syntax:
+var x : <<dtype>> = <dtype> value;
+
+
+//Program 
+(Program to perform Type-Assertion and display values on Console)
+
+= NOTE:
+It is called "Assertion" but not "Casting" because this process is purely done during compilation only rather than at run-time
+
+==> Inferred Typing:-
+= Typescript is strongly typed, but also allows us to declare variables without data-types
+= Depending on value assigned, its data-type is determined.
+
+= Example,
+	var n = 10; //inferred as number-type
+	n = "hello"; //Error... coz' it is first set to number-type
+	
+//Program 
+(Program to perform Inferred-Typing and display values on Console)
+
+==> Variable Scopes in Typescript:-
+= Scope represents where we can use or access the declared variable in a program
+= Typescript supports 3 Variable-Scopes
+
+a) Global-Scope
+= Declared outside a class and accessible anywhere through-out the program
+
+b) Class-Scope
+= They are class-fields(properties), declared outside methods
+= Accessible using object and if static then classname
+
+c) Local-Scope
+= Local-variables declared inside methods, constructors and loop definitions
+= Accessible only with-in the block in which it is defined
+
+//Program
+(Program to demo. variables and display the values on Console)
+
+
+
+
+
+
+
+

@@ -1,0 +1,148 @@
+==> Todays Topics:-
+= Working with Objects in Angular
+= Programs on Objects
+= assets folder in Angular-App
+
+==>> Objects in Angular:-
+= In javascript/typescript, object is collection of different type of data
+= It is represented as follows, ({using curly-braces})
+var s1 = {sno:1001, sname:"Sai", course:"Angular"};
+var e1 = {empno:1122, ename:"Ali",job:"Manager"};
+
+= This object contains different-data in the form of (name:value) pairs 
+= : is used for (name,value) pair
+= using , (comma) we define multiple (name,value) pairs
+
+= Access/Use them? (How to access data from object)
+We use (dot .) operator to access members of an object
+Ex: (objname.dataname) ----> datavalue
+	s1.sno
+	s1.sname
+	s1.course
+	----------------
+	e1.empno
+	e1.ename
+	e1.job
+
+= In Angular Component/Any class, we represent object in the same way
+Ex:
+s1 = {sno:1122,sname:'Sai',course:'Angular'};
+s2 = {'sno':1002, 'sname':'Ali', 'course':'NodeJS'};
+//Use single-quote to represent strings
+
+= To use this object-data in HTML template(view) as follows,
+	{{s1.sno}}
+	{{s1.sname}}
+	{{s1.course}}
+= here also we use .(Dot) operator to access object-data
+= for display in view(.html), we use interpolation process {{}}	
+
+//Program (demo-app -> comp1)
+(Create a Webpage to use regular JS student-object in Angular)
+
+
+==> Arrays inside an Object:-
+= In Angular class, we declare an object using {} (flower-braces)
+= We declare an array using [] (Square-brackets)
+
+= For declaring an array inside an object, we use the following example,
+Ex:
+public s3 = {
+	sno : 1001,
+	sname : "Sai",
+	course : "CSE",
+	sub1 : 96,
+	sub2 : 86,
+	sub3 : 46,
+	sub4 : 76,
+	sub5 : 66,
+	total : 0,
+	avg : 0
+};
+
+= Here sub1, sub2, sub3, sub4, sub5 are 5 different properties of an object "s1"
+= They all belong to same data-type. Hence they can be converted to an Array
+Ex:
+public s3 = 
+{
+	sno : 1001,
+	sname : "Sai",
+	course : "CSE",
+	sub : [96,86,46,76,66], //Array inside an object
+	total : 0,
+	avg : 0
+};
+
+
+= How to Access/Use?
+	{{s1.sub[0]}}
+	{{s1.sub[1]}}
+	{{s1.sub[2]}}
+	{{s1.sub[3]}}
+	{{s1.sub[4]}}
+
+(or)
+
+= *ngFor = "let item of s1.sub"
+	{{item}}
+
+//Program (demo-app ---> comp1)
+
+=>> Array of Objects in Angular:- 
+= Array is collection of same type of data. 
+It is represented as follows,
+Ex:-
+public arr = [......];
+
+= Object is collection of different type of data.
+It is represented as follows,
+Ex:
+public s1 = {.....};
+
+= Now, Array of Objects is done as follows,
+Ex:
+public obj = [
+			{...},
+			{...},
+			.....
+		];
+
+Example1,
+employees=
+[
+{empno:1122,ename:"Sai",sal:2600,job:"HR",deptno:10}, {empno:1133,ename:"Ram",sal:5900,job:"Manager",deptno:20},
+{empno:1144,ename:"Ali",sal:8100,job:"Clerk",deptno:30},
+{empno:1155,ename:"Jon",sal:4200,job:"Analyst",deptno:40},
+{empno:1166,ename:"Pop",sal:5600,job:"Developer",deptno:50} 
+];
+
+Example2,
+public products = 
+[
+{pname:"Vibe K5 Note",brand:"Lenovo", price:11500, picture:"Image1.jpg"},
+{pname:"Vibe K6 Power",brand:"Lenovo", price:9999, picture:"Image2.jpg"},
+{pname:"Redmi Note3",brand:"Xiaomi", price:11999, picture:"Image3.jpg"},
+{pname:"Mi5",brand:"Xiaomi", price:21999, picture:"Image4.jpg"},
+{pname:"Redmi Note4",brand:"Xiaomi", price:12999, picture:"Image5.jpg"}
+];
+
+//Program (demo-app)
+(Create a webpage using Array of Objects (Product-data) with tables in Angular)
+
+NOTE:-
+= Resources in Angular-App are kept under assets folder
+Ex:
+	images
+	text-files
+	audio
+	video
+	any file
+	etc
+
+= They are access as follows,
+"assets/pictures/image1.jpg"
+"./assets/pictures/image1.jpg" (./ means current-directory)
+etc...
+
+
+

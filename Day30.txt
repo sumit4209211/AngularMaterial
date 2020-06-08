@@ -1,0 +1,128 @@
+==> Todays Topics:-
+= 2-way bindings in Angular
+= ngModel directive in Angular
+= Programs
+
+= Binding is done in 2-ways
+a) [] property-binding
+= Here data will flow from component-class to html-views
+
+b) () event-binding
+= Here data will flow from html-views to component-classes
+
+NOTE:-
+= Combining [] & () we use 2-way binding
+= It is done with help of [(ngModel)]="..."
+
+Ex1:-
+Enter name :
+<input type="text" [(ngModel)]="uname" />
+<br /><br />
+<span>Welcome : {{uname}}</span>
+(and)
+In component-class, we use initial value for "uname"
+Ex:
+	uname="Sai";
+= Initially "Sai" is display in text-box
+
+
+Ex2:-
+<div>
+    Enter Full-Name:-
+    <input type="text" name="" value="" [(ngModel)]="fullname" />
+    <br /><br />
+    <span>Full-Name : {{fullname}}</span> <br /><br />
+    <span>Full-Name(UPPER) : {{fullname.toUpperCase()}}</span> <br /><br />
+    <span>Full-Name(lower) : {{fullname.toLowerCase()}}</span> <br /><br />
+    <span>UPPER-lower : {{upperlower()}}</span> <br /><br />
+</div>
+= Also use a data-prop in component-class
+fullname=""
+(and)
+  upperlower()
+  {
+		var result="";
+		var ss;
+		ss = this.fullname;
+		var i;
+		var c;
+		for(i=0;i<ss.length;i++)
+		{
+			c = ss[i];
+			if(c == ss[i].toUpperCase() )
+			{
+				result=result + c.toLowerCase();
+			}
+			else if(c == ss[i].toLowerCase() )
+			{
+				result=result + c.toUpperCase();
+			}
+			else
+			{
+				result=result+c;
+			}
+		}
+		return result;
+	}
+
+
+Ex3:- (Program)
+(Student-data with total-marks & Avg-marks)  
+<div>
+    <fieldset>
+        Enter RollNo :
+        <input type="number" [(ngModel)]="rno" />
+        <br /><br />
+        Enter Name :
+        <input type="text" [(ngModel)]="sname" />
+        <br /><br />
+        Mark1 :
+        <input type="number" [(ngModel)]="sub1" />
+        <br /><br />
+        Mark2 :
+        <input type="number" [(ngModel)]="sub2" />
+        <br /><br />
+        Mark3 :
+        <input type="number" [(ngModel)]="sub3" />
+        <br /><br />
+        Total-Marks :
+        <input type="number" [value]="sub1+sub2+sub3"  disabled/>
+        <br /><br />
+        Average Marks :
+        <input type="number" [value]="(sub1+sub2+sub3)/3" disabled/>
+        <br /><br />
+    </fieldset>
+</div>
+(and in comp-class)
+sub1=0;
+sub2=0;
+sub3=0;
+
+
+Ex4:- (Program)
+(Changing Images dynamically)
+<div>
+    Select you Image :-
+    <select [(ngModel)]="x">
+        <option value="image1.jpg">Image1</option>
+        <option value="image2.jpg">Image2</option>
+        <option value="image3.jpg">Image3</option>
+        <option value="image4.jpg">Image4</option>
+        <option value="image5.jpg">Image5</option>
+    </select>
+    <br /><br />
+    <img src="assets/products/{{x}}" width="200" height="300" />
+</div>
+(and in comp-class)
+x="image1.jpg"
+
+
+Ex:- (Assignment)
+(Changing Image dimensions dynamically i.e width & height)
+
+
+NOTE:-
+[] -> is for data-binding from component-class(data-prop) to html-input-control (view)
+() -> is for event-binding from view(html-input-control) to component-class (data-prop)
+= Hence it is known as 2-way binding [(ngModel)]="var-name"
+

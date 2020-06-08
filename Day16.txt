@@ -1,0 +1,109 @@
+==> Todays Topics:-
+= Environment Setup for Angular
+= Project Setup for Angular
+= Creating First Angular-Application (Tomorrow)
+
+
+=> Revision:-
+= What is Angular? (Typescript)
+= What is AngularJS? (Javascript)
+
+= AJS (2009)
+= Angular(TS) 2016
+
+NOTE:
+=Google team had developed both AJS & ATS
+
+= Angular 8 (May 28th, 2019)
+
+=> Why Angular when compared to AJS?
+1) 5 times faster 
+2) Modular Programming
+3) Application Platform
+4) Scripting Lang Options
+(Typescript,Purescript,Dart,ELM etc)
+5) Unit Testable
+
+=> Versions:- 2/4/5/6/7/8
+
+==>> Environment & Project Setup for Angular:-
+=> Software Requirements
+	= Nodejs (Latest)
+	= Npm (Latest)
+	= Angular CLI (Latest online install)
+	= IDE for writing your code (Visual-Studio-Code)
+
+NOTE:-
+= 1st install Visual-Studio-Code and Open it (for Windows - Stable-Build)
+(https://code.visualstudio.com/)
+= IDE (Integrated Development Environment)
+i.e,(Other) WebStrom, Atom, Sub-Lime etc
+
+= Why IDE?
+(Creating Angular Projects, Compiling or Building, Running, Verifying Ouput)
+
+
+= Open Terminal & Goto your working-directory
+(G:\AngularOnline\Angular>)
+
+NOTE:
+= Terminal is nothing but command prompt
+
+1) Installing "Nodejs"
+=> Check Nodejs:
+cmd> node -v
+(Install Nodejs from  https://nodejs.org/en/download/ based on your OS)
+
+NOTE:
+Nodejs is intalled in our system at
+(C:\Program Files\Nodejs)
+
+
+2) NPM Installation
+=> Check npm:
+= It is installed by default along with "nodejs"
+cmd> npm -v
+
+=> What NPM?
+(Node Package Manager)
+= It allows us to install Open-Source Javascript Libraries/Packages into our Angular Application using Node Development Environment
+
+
+3) Angular CLI Installation:-
+= Install from (https://cli.angular.io)
+= Follow the required steps
+
+cmd>npm install -g @angular/cli 
+(-g indicated global installation of angular/cli in your system)
+i.e, we can develop and run your angular-app anywhere from any folder
+
+
+=> What is Angular CLI?
+(Command Line Interface)
+= Using commands we can create our project application files and folder in our system for development
+
+
+=> Check Angular CLI:
+cmd>ng v(version)
+//we get angular/cli -version, node -version, win64 OS, Angular-Packages versions
+
+NOTE:
+(Software Requirements for Angular)
+1) VS Code
+2) NodeJS
+3) NPM (auto installed)
+4) Angular CLI
+
+
+=> Creating First Application in Angular:-
+cmd>ng new my-first-app(FirstApp)
+cmd>cd my-first-app(FirstApp)
+cmd>my-first-app(FirstApp)>ng serve
+
+NOTE:
+= Angular Live Development Server is online at http://localhost:4200
+= Open the browser and type above URL to view your FirstApp Homepage
+
+
+
+

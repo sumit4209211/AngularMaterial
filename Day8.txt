@@ -1,0 +1,121 @@
+==> Todays Topics:-
+=> Functions in Typescript
+=> Programs on Functions
+
+=> Next Session on Monday (8.30 PM) 24th June, 2018
+
+
+===>>> Functions in Typescript::::
+= Functions are reusable codes of a program
+= Write once, use or call any no. of times
+
+= Definition: 
+A function is a set of statements, used to perform specific task in your program
+
+Ex:
+{
+.....
+block of code;
+.....
+}
+
+Syntax:- (function keyword)
+function <<func-name>> : return-type (input-parameters)
+{
+	//body of the function...
+}
+
+//Program
+(Program to demo basic usage of function in typescript)
+
+
+==> Optional Parameters in Functions::
+= It is used when passing argument is not mandatory
+= Such Parameters are marked with ? beside the parameter-name
+= Optional Parameter should be last parameter of a function
+
+Syntax:
+function func-name(p1:type, p2:type, p3?:type)
+//Here p3 is optional for passing as argument during function-call
+
+//Program
+(Program to demo optional parameter in a function)
+
+NOTE:
+= If parameter is not passed then it is set to "undefined"
+
+
+==> Rest Parameters::
+= This concept is same as that of Varargs in Java 
+(Variable length argument list)
+= It is used with ...(3 dots) before variable-name
+= It should also be last parameter of the function
+= We can pass Zero(0) or more parameters of SAME-Type to call a function
+Syntax:
+function func-name(p1:type, p2:type, ...p3:type[])
+{
+	//statements
+}
+
+//Program
+(Program to demo Rest-Parameters in Function-call)
+
+NOTE:
+= Rest-Parameter is an array of dynamic size based on arguments passed to call a function
+
+
+==> Default-Parameters:
+= This concept is same as of C++
+= Here we can give default values to function-parameters
+= Such values are used when user does not pass any arguments to call a function
+
+Syntax:
+	function func-name(p1:type,p2:type=defaultvalue)
+	{
+		//statements
+	}
+
+//Program 
+(Program to demo. default-parameters to a function)
+
+NOTE:
+= A parameter cannot be default and optional at the same-time //Error...
+
+
+==>Anonymous Functions::
+= Functions with-out a name are known as Anonymous Functions
+= Variables are assigned to these functions
+= Can take parameters and give return-values
+Syntax:
+	var varname = function(parameters)
+					{
+						//statements;
+					};
+
+//Program
+(Program to demo Anonymous Functions in typescript)
+
+
+==> Function Constructor:
+= Typescript supports defining a function with pre-defined Javascript constructor called "Function()"
+Syntax:
+var varname = new Function("parameters",.....,"body");
+
+//Program
+(Program to demo Function Constructor in typescript)
+
+NOTE:
+Here function reference is available in "varname"
+
+
+==> Recursion Functions:
+= Calling a function itself is known as Recursive Function and process is known as Recursion
+
+//Program
+(Program to demo Recursive-Function in typescript)
+
+NOTE:
+Anonymous Recursive-Function call itself with function-call operator i.e, ()
+
+
+

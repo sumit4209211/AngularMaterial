@@ -1,0 +1,282 @@
+==> Todays Topics:-
+= Http-service with CRUD operations (Tomcat-Server--->MySQL-DB)
+= Programs
+
+
+==> CRUD Operations using HttpClient in Angular:-
+= CRUD means Create Read Update Delete (Records in table)
+
+//Program (insertcomp in http-app)
+cmd> ng g c insertcomp
+
+= In insertcomp.component.html
+Ex:-
+<div>
+    <span [style.color]="'Green'">{{httpdata}}</span>
+    <span [style.color]="'Red'">{{error}}</span>
+    <br /><br />
+    <fieldset>
+        <legend>Enter Prodcut Data</legend>
+        Prod Id :
+        <input type="number" [(ngModel)]="pid" /> <br /><br />
+        Prod Name :
+        <input type="text" [(ngModel)]="pname" /> <br /><br />
+        Brand :
+        <input type="text" [(ngModel)]="brand" /> <br /><br />
+        Price :
+        <input type="number" [(ngModel)]="price" /> <br /><br />
+        Picture :
+        <input type="text" [(ngModel)]="picture" /> <br /><br />
+        <input type="submit" (click)="f1()" />
+    </fieldset>
+</div>
+
+= import FormsModule in Root-Module(app.module.ts) and also add to "imports-array" for [(ngModel)] attribute on Input-ctrls
+Ex:-
+import { FormsModule } from '@angular/forms';
+(and)
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
+  ]
+
+= In insertcomp.component.ts
+Ex:-
+import { HttpClient } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs'; //NReq
+(and)
+  pid;
+  pname;
+  brand;
+  price;
+  picture;
+  httpdata;
+  error;
+  constructor(private http : HttpClient) { } //Injecting
+
+(and)
+  f1()
+  {
+    let param1 = new HttpParams();
+    param1 = param1.append('pid',this.pid);
+    param1 = param1.append('pname',this.pname);
+    param1 = param1.append('brand',this.brand);
+    param1 = param1.append('price',this.price);
+    param1 = param1.append('picture',this.picture);
+
+    console.log(this.pid);
+    console.log(this.pname);
+    console.log(this.brand);
+    console.log(this.price);
+    console.log(this.picture);
+  
+    this.http.post<string>("http://localhost:8084/AJAXDemo/insertProduct.jsp",param1).
+    subscribe((data) => this.display(data), (error) => this.showError(error));
+  }
+
+(and)
+  display(data)
+  {
+    console.log("***Data in Response***");
+    console.log(data);
+    console.log(data.msg);
+    this.httpdata=data.msg;
+    this.error="";
+  }
+  showError(error)
+  {
+    this.error=error.message;
+    console.log("***Error in Request***");
+    console.log(error);
+    console.log(error.message);
+    this.httpdata="";
+  }
+
+= In app.component.html
+Ex:-
+<app-insertcomp></app-insertcomp>
+
+
+NOTE:-
+= Similarly, we can perform update and delete operations on DB using HttpClient and get() or post()
+
+
+//Program (deletecomp in http-app)
+cmd> ng g c deletecomp
+
+= In deletecomp.component.html
+Ex:-
+<div>
+    <span [style.color]="'Green'">{{httpdata}}</span>
+    <span [style.color]="'Red'">{{error}}</span>
+    <br /><br />
+    <fieldset>
+        <legend>Enter Prodcut Data</legend>
+        Prod Id :
+        <input type="number" [(ngModel)]="pid" /> <br /><br />
+        Prod Name :
+        <input type="text" [(ngModel)]="pname" /> <br /><br />
+        <input type="submit" (click)="f1()" />
+    </fieldset>
+</div>
+
+= import FormsModule in Root-Module(app.module.ts) and also add to "imports-array" for [(ngModel)] attribute on Input-ctrls
+Ex:-
+import { FormsModule } from '@angular/forms';
+(and)
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
+  ]
+
+= In deletecomp.component.ts
+Ex:-
+import { HttpClient } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs'; //NReq
+(and)
+  pid;
+  pname;
+  httpdata;
+  error;
+  constructor(private http : HttpClient) { } //D.Injection
+
+(and)
+  f1()
+  {
+    let param1 = new HttpParams();
+    param1 = param1.append('pid',this.pid);
+    param1 = param1.append('pname',this.pname);
+    
+    console.log(this.pid);
+    console.log(this.pname);
+    
+    this.http.post<string>("http://localhost:8084/AJAXDemo/deleteProduct.jsp",param1).
+    subscribe((data) => this.display(data), (error) => this.showError(error));
+  }
+
+(and)
+  display(data)
+  {
+    console.log("***Data in Response***");
+    console.log(data);
+    console.log(data.msg);
+    this.httpdata=data.msg;
+    this.error="";
+  }
+  showError(error)
+  {
+    this.error=error.message;
+    console.log("***Error in Request***");
+    console.log(error);
+    console.log(error.message);
+    this.httpdata="";
+  }
+
+= In app.component.html
+Ex:-
+<app-deletecomp></app-deletecomp>
+
+
+
+//Program (updatecomp in http-app)
+cmd> ng g c updatecomp
+
+= In updatecomp.component.html
+Ex:-
+<div>
+        <span [style.color]="'Green'">{{httpdata}}</span>
+        <span [style.color]="'Red'">{{error}}</span>
+        <br /><br />
+        <fieldset>
+            <legend>Enter Product Data</legend>
+            Prod Id :
+            <input type="number" [(ngModel)]="pid" /> <br /><br />
+            Prod Name :
+            <input type="text" [(ngModel)]="pname" /> <br /><br />
+            Brand :
+            <input type="text" [(ngModel)]="brand" /> <br /><br />
+            Price :
+            <input type="number" [(ngModel)]="price" /> <br /><br />
+            Picture :
+            <input type="text" [(ngModel)]="picture" /> <br /><br />
+            <input type="submit" (click)="f1()" />
+        </fieldset>
+    </div>
+
+= import FormsModule in Root-Module(app.module.ts) and also add to "imports-array" for [(ngModel)] attribute on Input-ctrls
+Ex:-
+import { FormsModule } from '@angular/forms';
+(and)
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
+  ]
+
+= In updatecomp.component.ts
+Ex:-
+import { HttpClient } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs'; //NReq
+(and)
+  pid;
+  pname;
+  brand;
+  price;
+  picture;
+  httpdata;
+  error;
+  constructor(private http : HttpClient) { }
+
+(and)
+  f1()
+  {
+    let param1 = new HttpParams();
+    param1 = param1.append('pid',this.pid);
+    param1 = param1.append('pname',this.pname);
+    param1 = param1.append('brand',this.brand);
+    param1 = param1.append('price',this.price);
+    param1 = param1.append('picture',this.picture);
+
+    console.log(this.pid);
+    console.log(this.pname);
+    console.log(this.brand);
+    console.log(this.price);
+    console.log(this.picture);
+  
+    this.http.post<string>("http://localhost:8084/AJAXDemo/updateProduct.jsp",param1).
+    subscribe((data) => this.display(data), (error) => this.showError(error));
+  }
+
+(and)
+  display(data)
+  {
+    console.log("***Data in Response***");
+    console.log(data);
+    console.log(data.msg);
+    this.httpdata=data.msg;
+    this.error="";
+  }
+  showError(error)
+  {
+    this.error=error.message;
+    console.log("***Error in Request***");
+    console.log(error);
+    console.log(error.message);
+    this.httpdata="";
+  }
+
+= In app.component.html
+Ex:-
+<app-updatecomp></app-updatecomp>
+
+
+
+

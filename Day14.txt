@@ -1,0 +1,106 @@
+===> Todays Topics:-
+=> Namespaces in typescript
+=> Modules in Typescript
+=> Programs
+
+===>> Namespaces in Typescript:::::
+= It is the process of grouping different classes and interfaces into a single unit
+= They are like "Packages in Java" and "Namespaces in .Net"
+
+Syntax:(namespace is the keyword)
+namespace <<namespace1>>
+{ 
+   export interface A { }  
+   export class B { }  
+}
+//Here interface-A and class-B belong to "namespace1"
+//"export" indicates they are accessible outside the namespace
+
+
+=> How to access namespace contents?
+
+= Syntax:
+namespacename.Classname/Interfacename
+(dot .) is the operator
+
+= Example:
+namespace1.A
+namespace1.B
+
+
+=> How to use namespace from an another .ts file?
+/// <reference path="filename.ts" /> 
+(use 3 /// slash)
+
+
+//Program -- define namespace
+//Program -- extend & access namespace
+//Program -- extend & access namespace
+(Program to demo usage of namespaces in typescript)
+
+NOTE:
+= Use the following command for compiling and running the code
+>tsc --out output.js Demo55a.ts
+>tsc --out output.js Demo55b.ts
+>node output.js
+
+= output.js is auto created and contains compile JS-code
+= this filename can be any other name also
+
+
+=> Nested namespaces:
+= Defining one namespace in an another namespace
+= It is like sub-packages in Java
+Syntax:
+namespace namespace1 
+{ 
+   export namespace namespace2 
+   {
+      export class Classname/Interfacename {    } 
+   } 
+}
+
+= How to access them?
+Example,	"namespace1.namespace2.Classname/Interfacename"
+
+//Program -- define nested-namespaces
+
+
+===>> Modules in Typescript:::::
+= Organizing typescript logics in a proper way is done by Modules
+= They are available from initial release
+
+= Used for logically grouping classes, interfaces and functions as single-unit
+
+= They can be exported to another module
+= Now in latest versions they are called Namespaces
+
+= Syntax: (module is the keyword)
+	module mod1
+	{ 
+		export function sum(x,y) 
+		{  
+			console.log(x+y); 
+		} 
+	}
+
+
+= New-Syntax: (using namespaces)
+	namespace name1
+	{ 
+		export function sum(x,y) 
+		{  
+			console.log(x+y); 
+		} 
+	}
+
+//Program 
+Program to demo. modules in typescript
+
+
+
+
+
+
+
+

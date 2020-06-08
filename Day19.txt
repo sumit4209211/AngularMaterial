@@ -1,0 +1,109 @@
+==> Todays Topics:-
+=> Welcome Application in Angular
+=> Working with Component Class (for Display)
+=> Templates & Styles in a Component Class
+
+
+==> Welcome Application in Angular:-
+
+//Program (welcome-app)
+(Program to display "Welcome Message" in welcome-app)
+
+cmd>ng new welcome-app
+
+= Move to Project-folder
+cmd>cd welcome-app
+
+= Now, compile and run the app in browser
+cmd\welcome-app> ng serve
+
+NOTE:-
+= ng server (npm start) alternate-cmd
+= What is the work of "ng serve"?
+Step1:-
+= It compiles all our .ts files into .js files
+
+Step2:-
+= Angular Live Development Server is started
+(This server is provided by Node)
+
+Step3:-
+= Our Application is Deployed on Server
+
+Step4:-
+= Our App Homepage starts with index.html
+
+NOTE:-
+npm command is related to node
+ng command is related to Angular
+
+
+NOTE:-
+./ (indicated current-directory)
+. means current
+/ means directory
+
+
+NOTE:- 
+Any changes done to .html or .css file for our component file providing view, they are auto compiled on server and the browser also auto refreshes the webpage
+
+
+NOTE:
+= WebSever starts at port no. 4200 in your local-system
+= Type the URL in Browser (http://localhost:4200/)
+= On successful deployment of our application, we get Angular Homepage
+
+
+NOTE:
+=> Make changes to below files
+	= app.component.html
+	= app.component.ts (change title='Angular')
+	
+=> Any changes done to data-properties of component-class(AppComponent), they are reflected in view (wherever we are using them)
+Ex:
+	<h1>
+		Welcome to {{title}}!
+	</h1>
+	
+=> What is {{}}	?
+= It is syntax from Angular to display data from Component class
+= It is known as Binding Expression
+= What ever dynamic data or function used to display to user is done by {{}}
+
+NOTE:-
+= this process is known as Inter-polation
+(reflecting data-properties or functions from Component class to view using .html file)
+
+
+=> Working with AppComponent class:-
+(Root-Component)
+
+=> Add few more data-properties (uname,fname,lname)
+=> Add few more functions/methods (fullname())
+
+NOTE:-
+=** var, function keywords are not required in component-class
+
+
+=> Default port for angular/cli is 4200. 
+However we can change this using following command
+cmd>ng serve --host 0.0.0.0 --port 4028 --open
+cmd>ng serve --host 0.0.0.0 --port 4208 --open
+
+NOTE:
+= Stop the Angular Live Development Server in terminal using (Ctrl+C)
+
+=> Other Command (Running-Server)
+cmd>ng serve --o
+cmd>ng serve -o
+cmd>ng serve --open
+= --o indicates open default browser to run your-app
+= --open
+= -o
+
+
+
+
+	
+
+

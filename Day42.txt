@@ -1,0 +1,233 @@
+==> Todays Topic:-
+= Http-Service in Angular
+= Observables in Http-Request
+= XML data & JSON data
+= Program
+
+==>> Http Service & Observable in Angular:-
+= This concept is related to AJAX in AngularJS/JQuery/any Javascript
+
+= AJAX Stands for "Asynchronous Javascript and XML(JSON)"
+
+
+=> Synchronous Communication:-
+= In this communication from webpage to server, Http Request is sent to Server
+= Till we get Http Response from server, the complete webpage is blocked
+= i.e, for every request we get Full Page Response
+
+Dis-Advantage:
+= Every time Full-Page update
+= Network Traffic Increases
+= Burden(Overload) on Server Increases
+= Performance of Server comes down
+
+
+=> Asynchronous Communication:-
+= In this communication from webpage to server, Javascript Request is sent to Server
+= Till we get Response from server, the complete webpage is Active (Not-Blocked)
+= i.e, for every request we get Partial Page Response
+
+Advantages:
+= Every time Partial-Page update
+= Network Traffic Decreases
+= Burden(Overload) on Server Decreases
+= Performance of Server increases
+
+
+==> What is XML & JSON in Asynchronous Comm?
+= In Partial-Page updates using AJAX, we get response in the form of XML data(today we use JSON-data)
+
+= In full-page updates, we get response as HTML data (HTML tags & elements)
+
+=> XML Stands for Extensible Markup Language.
+= It is a standard in Web-Apps to transfer/send data in the form of tags
+Ex:
+	<phone-book>
+		<contact>
+			<name>Sai</name>
+			<no>9876543210</no>
+		</contact>
+		<contact>
+			<name>Ram</name>
+			<no>9988776655</no>
+		</contact>
+		......
+	</phone-book>
+
+
+= Dis-Advantage:
+= The main dis-advantage is after getting data in our webpage as Partial-Page Response, to access XML data, we again have to use XML functions
+
+
+=> JSON stands for Javascript Object Notation
+= Today in all Web-Apps, it is standard to transfer/send data using JSON
+= Here data is directly in the form of javascript-object
+Ex:
+var phonebook = [
+				{"name":"Sai","no":9876543210},
+				{"name":"Ram","no":9988776655},
+				...];
+
+= Advantage:
+= Such data can be used directly in Javascript for display (Partial-Page update)
+
+
+=> In Angular Framework, AJAX is implemented using HTTP Service and Observable Response
+
+= Http-Service is used to communicate with server-side tech
+= Observable response is used to get asynchronous data as response
+
+
+= Basically in Angular Services, we make use of HTTP-service, to communicate with server-side technologies
+Ex: Java(Tomcat), .Net(IIS), PHP(XAM), etc
+
+= These servers provide dynamic data from Databases
+= Such data is given as Response back to HTTP-service in Angular
+
+= This Response is available in our App as Asynchronous format i.e, Observable-data
+
+= Such data is converted or type-casted to our Required usable format
+Ex: Employee/Products array format
+
+
+= Once such data is available in our required format, we have to provide that to our components(display)
+
+= Hence in our components, we subscribe such partial-page data and use in our templates(.html)
+
+NOTE:
+= HttpClientModule is used in our Root-Module import
+= HttpClient class is used in our Service
+= Observable class is used in our Service
+= HttpClient is injected in our Service using DI in constructor
+= get(URL) function or post(URL) is used from HttpClient class to communicate with server-side technologies
+= subscribe() function is used from Observable class to get the converted Partial-Page data (Asynchronous-comm data)
+
+
+//Program
+(Create a Webpage to get Asynchronous data from Server-side Technologies using Http service & Observable) 
+
+=> Basic Steps for Http Communication:-
+1) Use Http service and request the server-url
+2) Response is converted to our Products-array Format, which is in Observable-format
+3) Subscribe such converted data in our components
+4) Assign the subscribed data to comp-class variables (Data-Prop)
+5) Use such variables(data-prop) in our templates
+
+NOTE:
+= To work with Observable in Http communication, we use "rxjs"
+= It stands for "Reactive Extension for Javascript"
+= It is a 3rd party library to work with Observables in Angular Http services
+
+
+=>>Steps::::::::::::::
+1) Create a new application "http-app"
+cmd>ng new http-app
+cmd>cd http-app
+
+2) Open the file, "app.module.ts"
+= Use the following module,
+import { HttpClientModule} from '@angular/common/http';
+
+= Same is added in imports array as follows,
+imports : [...., HttpClientModule]
+
+3) Open the file, "app.component.ts" 
+(use http service here)
+import { HttpClient} from '@angular/common/http';
+
+= In AppComponent class, use the following code,
+//use private variable of HttpClient for constructor-para
+(or)
+constructor(private http: HttpClient) //D.I by Angular FW
+{
+}
+
+4)
+f1()
+  {
+  this.http.get<Products[]>("./assets/jsondata/products.json").
+    subscribe(data => this.httpdata=data);
+    //subscribe(  (data) => { this.displaydata(data); } );
+    //subscribe(  (data) => this.displaydata(data) );
+    //subscribe( (data)=>this.showdata(data));
+  }
+
+displaydata(data)
+  {
+    console.log("***Displaying Data from Server DB***");
+    this.httpdata=data;
+  }
+  showdata(data)
+  {
+    console.log("***Showing Data using show() from DB***");
+    console.log(data);
+  }
+
+= also use (data-prop)
+httpdata=[];
+
+
+=> (In app.component.html)
+<button (click)="f1()">Display Products</button>
+<br /><br />
+<table border=2 width="500">
+  <tr>
+    <th>ProdID</th>
+    <th>PName</th>
+    <th>Brand</th>
+    <th>Price</th>
+    <th>Picture</th>
+  </tr>
+  <tr *ngFor="let data of httpdata;">
+    <td>{{data.pid}}</td>
+    <td>{{data.pname}}</td>
+    <td>{{data.brand}}</td>
+    <td>{{data.price}}</td>
+    <td>{{data.picture}}</td>
+  </tr>
+</table>
+<br /><br />
+
+
+= (In ./assets/jsondata/products.json)
+[
+{"pid":1133,"pname":"Vibe K6 Power","brand":"Lenovo","price":9999,"picture":"image2.jpg"},
+
+{"pid":1144,"pname":"Redmi Note 3","brand":"MI","price":11999,"picture":"image3.jpg"},
+
+{"pid":1155,"pname":"Mi 5","brand":"Xiaomi","price":21999,"picture":"image4.jpg"},
+
+{"pid":1166,"pname":"Redmi Note 4","brand":"Xiaomi","price":12999,"picture":"image5.jpg"},
+
+{"pid":1177,"pname":"Redmi Note 5","brand":"Xiaomi","price":14999,"picture":"image6.jpg"},
+
+{"pid":1188,"pname":"Redmi Note 7","brand":"MI","price":15999,"picture":"image1.jpg"},
+
+{"pid":1199,"pname":"iphoneX","brand":"Apple","price":59999,"picture":"image8.jpg"},
+
+{"pid":1122,"pname":"Vibe X","brand":"Lenevo","price":10999,"picture":"image1.jpg"},
+
+{"pid":9995,"pname":"Redmi Note 8 Pro","brand":"Mi India","price":11999,"picture":"image5.jpg"},
+
+{"pid":8888,"pname":"Iphone New","brand":"Apple","price":99999,"picture":"image1.jpg"},
+
+{"pid":7777,"pname":"Xperia10","brand":"SONY","price":10500,"picture":"image1.jpg"},
+
+{"pid":5555,"pname":"MI 9","brand":"Xiaomi","price":29999,"picture":"image9.jpg"},
+
+{"pid":6666,"pname":"iPhone10","brand":"Apple","price":129999,"picture":"image10.jpg"}
+]
+
+
+= (and) app/Products.ts file
+Ex:-
+export interface Products
+{
+    pid : number;
+    pname : string;
+    brand : string;
+    price : number;
+    picture : string;
+}
+
+5) Click "Display Products" button and verify data display in view(.html)

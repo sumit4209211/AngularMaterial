@@ -1,0 +1,116 @@
+==> Todays Topics:-
+=> Creating & running Angular Application 
+=> Angular Application Folder Structure
+=> About Modules & Components
+
+
+==> Creating First Application in Angular:-
+cmd>ng new first-app(FirstApp)
+= It creates new Angular-App in our working directory
+= It does this operation using Net connection
+= Complete folder for our Angular-App is created and necessary files are downloaded from Internet
+= Bascially necessary files are packages required for our Angular-App (Library files)
+
+cmd>cd first-app(FirstApp)
+
+cmd>first-app(FirstApp)>ng serve
+= (or)npm start (alternate command)
+= Our Angular-App (first-app) is compiled to javascript format
+= Angular Live Development Server starts (with the help of Node)
+= Next our Angular-App is registered with Server
+= Next our Angular-App(first-app) is line/online at given URL
+(http://localhost:4200/)
+
+
+NOTE:
+= Finally open the browser and access above URL
+= We can see index.html from our Angular-App(first-app)
+
+
+NOTE:
+= Angular Live Development Server is online at http://localhost:4200
+
+= Open the browser and type above URL to view your first-app Homepage (index.html)
+
+
+==> Application Project Folder Structure:-
+= In VS-Code, 
+Click File -> select Open-Folder -> Goto Working Directory and select "first-app" -> Open Folder
+
+= In VS-Code, Explorer open and our Project Folder appears on the left side
+
+=> Important Files in our Application:-
+i)
+= package.json
+(Provides information about all the packages used in our app)
+(All these Packages are available under "node_modules" folder)
+
+ii)
+= index.html (it is in "src" folder)
+= It is Homepage for our Angular App(first-app)
+
+iii)
+= main.ts
+= It is file which provides information to Angular Live Dev Server about flow of execution of Angular-App
+
+NOTE:
+= This file provides from where our application should start running
+"bootstrapModule(AppModule)"
+AppModule is app.module.ts (it is in app folder)
+
+= app.module.ts (Root Module)
+(This file says our application flow should start with AppComponent i.e, app.component.ts (it in same folder))
+
+= app.component.ts (Root Component)
+(This file provides typescript-class)
+(In this file we have information about our view)
+(view means display of info in webpage i.e, index.html)
+(View is provided by selector(app-root))
+(<app-root></app-root> is used in index.html as custom-tag)
+(for this selector, we have templateUrl(.html file) & styleUrls(.css file) )
+(Finally, .html+.css is the view in index.html for our <app-root> selector)
+
+
+NOTE:
+"index.html" is the Homepage for any Angular-App
+=> Basic flow of Execution:-
+(main.ts --> app.module.ts --> app.component.ts -> selector -> .html+.css file for display)
+
+
+
+==> About Modules & Components in Angular-App:-
+=> Root Module (AppModule)
+= Every Angular-App has Root-Module (AppModule -> app.module.ts)
+= this file is in (src\app\app.module.ts)
+= Under ths Root-Module we have 1 root-component
+
+=> Root Component (AppComponent)
+= this file in under (src\app\app.component.ts)
+= In this typescript file, we have selector (<app-root>)
+= For this selector, we have corresponding view or display (.html+.css files)
+= app.component.html + app.component.css
+
+NOTE:
+= In app.component.ts file, we have a class (AppComponent)
+= This class contains (data-prop + methods/funcs)
+= These class-members can be used in views (app.component.html)
+
+==> Module V/s Component:-
+= Module is collection of different components
+= Component is nothing but view in webpage
+
+NOTE:
+= Every Angular-App has only 1-Root-Module & only 1-Root-Component
+
+
+
+
+
+
+
+
+
+
+
+
+

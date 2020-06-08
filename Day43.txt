@@ -1,0 +1,169 @@
+==> Todays Topics:-
+= Http-Service with Server-side Tech
+= CRUD Operations
+= Program
+
+
+=> Revision:-
+= Http-Service allows us to comm with server-side tech.
+= It is available in HttpClientModule (@angular/common/http pkg)
+= HttpClient class is used from above module
+= get() and post() are used to communicate with server side tech
+
+= above methods return-type is Observable-data (Asynchronous-data)
+(Response-data)
+= Such data we typecast into our respective-format
+Ex:- Employee/Products/String/Integer etc
+
+= Such converted-data is used in out Angular web-app using data-prop
+
+= Finally, such data-prop is displayed in view
+Ex: table/list/para/span etc
+
+
+
+==> Using Server-Side Technology:-
+(OR)
+= Getting Data from Java/.Net/PHP/Python Server-side technologies (From Web-Servers)
+
+
+= (In app.component.ts)
+ngOnInit() or f1() (using f1())
+{
+this.http.get<Products[]>("http://localhost:8084/AJAXDemo/getProducts.jsp").
+    	subscribe((data) => console.log(data))
+		//subscribe(data => this.httpdata=data);
+    //subscribe(  (data) => { this.displaydata(data); } );
+    //subscribe(  (data) => this.displaydata(data) );
+    //subscribe( (data)=>this.showdata(data));
+	
+}
+
+= use get() from http to fetch the data from URL/Server-Resourse/Database
+Ex: this.http.get("url")
+= It takes URL as para., which return response as Observable
+= subscribe() is used for fetching response-data
+
+
+=> Other-ways of subscribe()
+Ex:-
+subscribe(  (data) => { this.displaydata(data); } );
+subscribe( (data)=>this.showdata(data));
+subscribe((data) => console.log(data), (error) => this.showError(error));
+subscribe((data) => console.log(data), (error) => this.error=error);
+
+
+(and)
+showError(error)
+  {
+    this.error=error.message;
+    console.log(error);
+  }
+(and data-prop)
+error; (variable)
+
+
+*** subscribe() logs that data on console or UD-methods
+
+NOTE:-
+= <Products[]> is type-conversion for Response-data 
+(Which is of type Observable)
+
+
+==> Passing Parameters to get() for URL:-
+Ex:-
+this.http.get<Products[]>("http://localhost:8084/AJAXDemo/getProducts.jsp?pid=8008&pname=X6&brand=Samsung&price=89999&picture=image111.jpg").
+    subscribe((data) => console.log(data), (error) => this.showError(error));
+
+= Using query-string we can pass parameters as (name=value) pairs
+
+
+==> Sending data to server using HttpOptions & Parameters:-
+Ex:-
+ this.http.get<Products[]>("http://localhost:8084/AJAXDemo/getProducts.jsp",{params:param1}).
+    subscribe((data) => console.log(data), (error) => this.showError(error));
+
+
+(and param1 is a data-prop in class or local-var in the method of type HttpParams)
+let param1 = new HttpParams();
+    param1 = param1.append('pid','8088');
+    param1 = param1.append('pname','RedmiNOTE10');
+    param1 = param1.append('brand','Xiaomi');
+    param1 = param1.append('price','25999');
+    param1 = param1.append('picture','image10.jpg');
+
+(also import HttpParams)
+import { HttpParams} from '@angular/common/http';
+
+
+=> Another Example using post():-
+Ex:-
+this.http.post<Products[]>("http://localhost:8084/AJAXDemo/getProducts.jsp",param1).
+    subscribe((data) => console.log(data), (error) => this.showError(error));
+
+
+NOTE:-
+= Optionally we require HttpOptions if server does not accept request from angular live development server
+Ex:- (as data-prop)
+httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
+    //param : this.params
+};
+
+
+= (and in f1() method) 
+this.http.get<Products[]>("http://localhost:8084/AJAXDemo/getProducts.jsp",this.httpOptions). //if error from server
+subscribe((data) => console.log(data), (error) => this.showError(error));
+
+(also import HttpHeaders)
+Ex:
+import { HttpHeaders } from '@angular/common/http';
+
+NOTE:-
+= Some server-side technologies rejects request from the clients like angular-apps
+= In such case use above HttpOptions
+
+
+NOTE:-
+= In all the cases, for get() or post(), the return type is <Products[]>
+= Actually return type of get() and post() method is Observable i.e, Asynchronous data (partial page update)
+= Such data is type-casted to our known accepted format i.e, <Products[]>
+
+
+= This interface provides info to AFW that our return data from server DB is of type Products-type
+
+= Also import this interface,
+Ex:-
+import { Products } from './Products'
+
+= Finally the JSON data is displayed in console as Array of Objects our used in .html(template)
+Ex:
+[
+{}
+{},
+{},
+...
+]
+
+
+=> Now, open app.component.html file,
+(use *ngFor over httpdata to display data in html-page)
+<table border=2 width="500">
+  <tr>
+    <th>ProdID</th>
+    <th>PName</th>
+    <th>Brand</th>
+    <th>Price</th>
+    <th>Picture</th>
+  </tr>
+  <tr *ngFor="let data of httpdata;">
+    <td>{{data.pid}}</td>
+    <td>{{data.pname}}</td>
+    <td>{{data.brand}}</td>
+    <td>{{data.price}}</td>
+    <td>{{data.picture}}</td>
+  </tr>
+</table>
+

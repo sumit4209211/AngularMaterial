@@ -1,0 +1,106 @@
+==> Todays Topics:-
+= 2-way Binding in Angular
+= ngModel Directive
+= Programs on 2-way-Bindings
+
+==> 2-Way Binding in Angular (ngModel) (**)
+= Basically interpolation using {{}} is 1-way Binding
+Ex:	 (binding-expression)
+uname="Sai Ram"; (comp-class)
+-------------------------------
+<span>Welcome : {{uname}}</span>
+
+= Here data-prop or functions-data is taken from component class to display in Browser as view (.html file)
+
+NOTE:-
+<comp-class> ----<<data-flow>>----> View (.html) display
+
+
+= However if data from view(.html) is updated by user then such data should also be updated to data-prop in component-class
+Ex:
+(.html view) ----<<flow of data>>----> comp-class(data-prop's)
+Ex:-
+Enter your Name:-
+<input type="text" name="" value="" />
+<br /><br />
+<span>Welcome : {{uname}} </span>
+
+= And wherever, we are using such data, it should be automatically reflected to view (.html) using {{}} 
+(1-way binding) i.e, interpolation
+
+
+= For 2-way binding i.e, component-class data-prop to view and also view to component-class data-prop, we use "ngModel" directive
+
+= ngModel is a predefined directive, it is provided by Angular
+= It is used to make flow of data from (.html to comp-class) and also (comp-class to .html for view)
+i.e, 2-way binding
+
+
+= It is used with mainly HTML input controls in Html-form
+Ex1:
+<input type="text" [(ngModel)]="uname" />
+<span>Welcome : {{uname}}</span>
+
+= Also use a data-prop in component-class
+Ex:
+	uname="Sai Ram"; //optional
+	
+	
+//Program (2-way Binding)
+(comp55 ---> demoa-app)
+cmd> ng g c comp55
+
+
+NOTE:-
+= Basically Angular does not support HTML forms with ngModel directive directly
+	
+= For this we have to import "FormsModule" from @angular/forms package in "app.module.ts" (Root-Module)
+
+= Also add it to imports-array in @NgModule() decorator
+
+=** From, 
+Root-Module(AppModule) ----> Root-Comp(AppComp) ----> Child-Comps(comp1,comp2,....,comp55)
+
+
+NOTE:-
+[] -> is for data-binding from component-class(data-prop) to html-input-control (html-element Attributes) (view)
+() -> is for event-binding from view(html-input-control) to component-class (data-prop)
+= Hence it is known as 2-way binding using [(ngModel)]="..."
+
+
+//Program (TwoWayBinding)
+Ex2:-
+Select Color :
+<select [(ngModel)]="x">
+    <option>Yellow</option>
+    <option>Green</option>
+    <option>Blue</option>
+    <option>Orange</option>
+    <option>Pink</option>
+</select>
+<br /><br />
+<span [style.background]="x">You have selected : {{x}}-color</span>
+
+= Also use a data-prop in component-class
+	x="";
+
+
+Ex3:-	
+<h3>***Arithmetic-Operations***</h3>
+<fieldset>
+    Enter Num1 :-
+    <input type="number" [(ngModel)]="a" /> <br /><br />
+    Enter Num2 :-
+    <input type="number" [(ngModel)]="b" /> <br /><br />
+    Results :<br /><br />
+    Add : {{a+b}} <br /><br />
+    Sub : {{a-b}} <br /><br />
+    Prod : {{a*b}} <br /><br />
+    Div : {{a/b}} <br /><br />
+    Mod : {{a%b}} <br /><br />
+</fieldset>
+
+= Also use a data-prop in component-class
+	a=11;
+	b=3;
+

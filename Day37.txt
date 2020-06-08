@@ -1,0 +1,127 @@
+==> Todays Topics:-
+= Custom Pipes in Angular
+= Program
+
+=> About Pipes:-
+= Pipe is nothing but filter
+= filter is used to transform our data into specified format
+
+= Filter are applied using | (pipe-operator)
+Ex:
+	{{data | filteroption}}
+	{{msg | uppercase}}
+	{{1234 | currency:'INR':'symbol'}}
+	
+= Here 'INR', 'symbol' are paramters to currency-filter
+
+= Predefined filters like,
+uppercase
+lowercase
+titlecase
+currency
+date
+number
+slice
+json
+percent
+....
+etc
+
+==> User-defined filters:- (or)
+==> Custom-Pipes in Angular:-
+= User-defined Pipes (Custom-Pipes/filters) are those pipes, which are defined by user as per requirement in program
+
+= Creating our own pipes and applying to the data using | (pipe-symbol)
+
+= Ex:	{{data | <<cust-pipe-name>> : para2 : para3}}
+//Here data itself is 1st-Para to pipe
+
+
+= We can also pipes to collection of data like arrays or objects
+= Ex: *ngFor = "let item of (array | pipename:p2:p3)"
+
+NOTE:
+= To work with pipes we require the following Class & Interface
+i.e, "Pipe" class & "PipeTranform" interface
+
+
+
+=> STEPS for Custom Pipes:-
+1) Create our own typescript(.ts) file in our app under "src/app" folder
+Ex: "app.sqrt.ts" (something like square-root pipe)
+(or)
+Use the following angular-cli command, 
+cmd> ng g pipe sqrt
+cmd> ng g p sqrt
+(g for generate and p for pipe)
+= sqrt.pipe.specs.ts
+= sqrt.pipe.ts (**) //coding for out pipe
+
+
+//Program (comp100 ----> demo-app)
+(Program to create and use custom-pipe in Angular)
+
+
+2) import "Pipe" interface & "PipeTranform" interface from '@angular/core' pkg in (sqrt.pipe.ts file)
+
+3) Create a decorator to provide name of a pipe
+@Pipe({
+	//name : 'sqrt'
+	name : 'squareroot'	//this is our modified pipe-name
+})
+
+NOTE:-
+= @Pipe() decorator is used to provide information to Angular-Framework that this sqrt.pipe.ts is a custom-pipe prog
+= This decorator takes {} object as parameter
+= In this object {}, we specify name of the pipe to be used in view (.html file)
+
+
+4) Create a class which implements PipeTranform interface 
+Ex: "SqrtPipe"
+export class SqrtPipe implements PipeTransform 
+{
+}
+
+NOTE:-
+= export means we can use this class in any other module of angular and its components
+
+
+5) Redefine transform() from PipeTranform interface in your Sub-class
+= Use proper input-para and return-values
+Ex:-
+transform(num:number) : number
+  {
+    var x;
+    x = Math.sqrt(num);
+    return x;
+  }
+
+
+6) Now, import this Custom-Pipe in app.module.ts (root-module) & add under declarations array
+Ex:import { SqrtPipe } from './app.sqrt';
+
+
+7) Finally, we can use this in our templates(.html file) as follows
+Ex:-
+	{{data | sqrt}}		(or)	{{data | squareroot}}	
+	//here 1st para is data
+(and in comp-class)
+num="4";	
+
+
+8) Verify for required transformation of data using custom-pipe
+
+//Program (comp100 ---> demo-app)
+(Create a webpage to apply Square-root Custom-Pipe Angular)
+
+Ex:- (in comp-html file)
+<div>
+    Enter your Number : 
+    <input type="number" [(ngModel)]="num" />
+    {{num}}
+    <br /><br />
+    <span>Square root of {{num}} is {{num | sqrt}}</span>
+	<span>Square root of {{num}} is {{num | squareroot}}</span>
+</div>
+(and in comp-class)
+num=4;

@@ -1,0 +1,102 @@
+==> Todays Topics:-
+= How to work with typescript programs?
+= How to install node js & npm
+= How to install typescript
+= How to work with Notepad++ & Visual Studio Code IDE
+= Basic commands in typescript
+
+NOTE:
+From Tomorrow Session Time is 8:30PM IST
+
+=> How to install node js?
+= Node Js provide RT Environment for Angular 8
+= RT Environment means we can execute our Angular Programs on Node js
+= Node js is used to run javascript of typescript program
+(Without any Browser)
+
+=> Install Node js?
+= Goto (www.nodejs.org) and download lastest version of Node Js for windows 64 bit OS
+= Install the nodejs
+
+= After installation verify it in command prompt
+cmd> node -v
+
+= Along with nodejs, npm is also installed
+(NPM -> Node Package Manager)
+
+= NPM allows us to download & install open-source javascript libraries in our system (integrated with nodejs)
+
+= How to very npm?
+cmd> npm -v
+
+= Finally, typescript in our system (it is integrated with nodejs only)
+
+cmd>npm install -g typescript
+(-g indicates global installation i.e, typescript is available to all users of the system)
+
+= Verify typescript?
+cmd>tsc -v
+
+==> Editors for Typescript Programming:-
+1) Notepad++ (https://notepad-plus-plus.org)
+2) Visual Studio Code IDE (Angular-also)
+(https://code.visualstudio.com/)
+
+=> Working with First Program:-
+1) Open VS Code, take new page
+2) Type your typescript program
+3) Save the program with .ts as extension
+Ex:
+	"Welcome.ts"
+4) Open Termial in VS Code (From View Menu)
+5) Goto working directory
+(G:\AngularOnlineSession\Typescript\Programs)	
+
+6) Compile .ts file
+cmd> tsc Welcome.ts
+(on Succesful compilation, .js file is created)
+
+7) Run .js file
+cmd> node Welcome.js
+
+8) Verify Output of your Program
+(Without any browser)
+
+
+NOTE:
+From Tomorrow Session Time is 8:30PM IST
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

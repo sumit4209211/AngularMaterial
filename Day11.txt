@@ -1,0 +1,113 @@
+==> Todays Topics:-
+=> Working with Arrays in Typescript
+=> Programs
+
+==>>> Arrays in Typescript:::::
+= In variables, we can store only 1-scalar data. 
+For multiple-data, we require multiple-variables
+Ex:
+	var a : number=10;
+	var b : string="hi";
+	var c : number=20;
+	(stores single data ata time)
+
+= Variables are allocated memory in different locations i.e, randomly and makes it difficult to access
+
+=> Definition:
+= An array is a collection of data of same datatype, which are store continuously in memory
+(one after the another)
+
+=> Features:
+= Allocates memory in sequential order
+= Size is dynamic(static), once initialized can(cannot) be resized (correction)
+= Elements are given indexes (0 to size-1)
+= Use var keyword to declare an array
+= Array values can be updated but not deleted
+
+
+=> Syntax:
+var array-name:datatype[]; //declaration
+array-name = [values,.....]; //initialization
+
+(or)
+
+var array-name:datatype[] = [values,....]; //single-stmt
+
+NOTE:-
+Array values are given in [] (Square-brackets)
+
+
+=> Example,
+var arr:number[] = [11,22,33,44,55];
+
+NOTE:
+= Array-name(arr) is a pointer/reference, which points to first-element in an array
+= [] it is dimension of an array (1-row array or 1D array)
+
+
+=> Accessing Array Elements:
+Example,
+array-name[index]
+arr[0], arr[1], arr[2], arr[3], arr[4] etc
+
+
+NOTE:
+= The best-way to access elements of an array is through loops
+Ex:
+for(i=0;i<arr.length;i++)
+{
+	arr[i]
+}
+
+=> Array object:
+= An array can be created using object of Array
+Example,
+var array-name:number[] = new Array(5); //size
+(or)
+var array-name:number[] = new Array(10,20,30,40,50); //values
+
+
+=> Methods in Arrays:
+= concat(a1,a2,....)
+Returns a combination of 2 or more arrays into single-one
+
+= forEach(func)
+Calls a function for each element in the array.
+
+= indexOf(element)
+Returns the first (least) index of an element within the array equal to the specified value, or -1 if none is found.
+
+= join(separator)
+Joins all elements of an array into a string.
+
+= lastIndexOf(element)
+Returns the last (greatest) index of an element within the array equal to the specified value, or -1 if none is found.
+
+= pop()
+Removes the last element from an array and returns that element.
+
+= push(n1,n2,...)
+Adds one or more elements to the end of an array and returns the new length of the array.
+
+= reverse()
+Reverses the order of the elements of an array -- the first becomes the last, and the last becomes the first.
+
+= shift()
+Removes the first element from an array and returns that element.
+
+= slice(begin,end)
+Extracts a section of an array and returns a new array.
+
+= sort(func)
+Sorts the elements of an array.
+
+= splice(i,n,ele,...)
+Adds and/or removes elements from an array.
+
+= toString()
+Returns a string representing the array and its elements.
+
+= unshift(n1,n2,...)
+Adds one or more elements to the front of an array and returns the new length of the array.
+
+//Program (with Array methods)

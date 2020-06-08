@@ -1,0 +1,107 @@
+==> Todays Topics:-
+= Events in Angular
+= Event-Binding in Angular
+= Programs on Events
+
+==> Events in Angular:-
+= Event is a communication between a user and HTML Webpage
+
+= In Javascript, we have some events such as,
+onClick=""
+onChange=""
+onKeyPress
+onKeyDown
+onMouseOver
+onMouseEnter
+onMouseExit
+onFocus
+onBlur
+onSubmit
+onScroll
+...etc
+
+
+= When these events occur in webpage, we perform some operation or call a Javascript function
+
+= In Angular, we use these events as "Event-Binding" Mechanism
+
+= Event-Binding mechanism is done on HTML Input Controls or other HTML Elements
+Ex: text-box/number-box/text-area/radio-btns/btns/submit/checkbox etc
+	<div>,<p>,<h1>......</h6> etc
+	
+= In Angular, when event occurs we call typescript function
+= These TS functions, we have to write in corresponding Component-classes
+
+
+= In Angular, we use [] property-binding to get dynamic data from Component Class Variables to HTML-attributes
+Ex:-
+<input type="text" id="" name="" [value]="uname" bind-disabled="bool"/>
+
+NOTE:-
+= Here in Event-Binding, we send or flow information from HTML to Component-class
+
+= For this we use () Event-Binding operator
+Ex:
+(click) = "f1()"
+(mouseover) = "f2()"
+etc...
+
+= Finally, this whole process in known as "Event-Handling Mechanism"
+
+
+//Program (demo-app ----> comp3)
+cmd> ng g c comp3
+g -> generate
+c -> component
+
+
+= Add following code in comp3.component.html
+<h3>Component3 Event-Binding</h3>
+<button (click)="f1($event)">
+            CLICK-ME
+        </button>
+        <span>{{msg}}</span>
+
+= Add following code in Comp3Component-class of comp3.component.ts
+	msg="";
+  f1(event)
+  {
+	console.log("You have HIT ME");
+	alert("HIT Button is Clicked");
+  console.log(event);
+  console.log(event.pageX+","+event.pageY);
+    this.msg="You Clicked the button at ("+event.pageX+","+event.pageY+")";
+  }
+
+NOTE:-
+= $event is a special object provided by angular for every webpage
+= This $event is same as in Javascript and also Typescript
+= Using this event, we can get more information about event in Angular webpage (Current-Event)
+=* $event is separate for every event in angular-webpage
+
+
+Ex:-
+<hr />
+        <div> Weekdays(with Events) :
+            <select (change)="f2($event)">
+                <option *ngFor="let i of days">{{i}}</option>
+            </select>
+        </div>
+        <span>{{msg2}}</span>
+<hr />
+
+= Add following code in Comp3Component-class of comp3.component.ts
+f2(event)
+  {
+	  console.log("You have CHANGED DAY");
+    alert("DAY is Changed from Combo-box");
+    console.log(event);
+    this.msg2="You have changed the day as :"+event.target.value;
+  }
+
+(and)
+days = ["Sunday","Monday","Tuesday", "Wednesday","Thursday","Friday","Saturday"];
+
+
+
+

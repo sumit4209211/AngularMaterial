@@ -1,0 +1,120 @@
+==> Todays Topics:-
+=> Interfaces in typescript
+=> Objects in Typescript
+=> Programs
+
+
+===>> Interfaces in Typescript:-
+= Interface is a skeleton of a class, with properties, methods
+= Skeleton means only declaration of methods but no definitions
+(incomplete methods/funcs)
+
+=** Interfaces are derived by Sub-Classes
+=** In sub-classes interface methods are re-defined
+
+=> How to declare Interfaces?
+= Syntax: (interface keyword)
+interface InterfaceName 
+{
+.... 
+}
+
+NOTE:-
+=> Classes and Interfaces:
+= A class can inherit an Interface using implements keyword
+Syntax:
+	class ClassName implements InterfaceName
+	{
+		//redefine properties 
+		//redefine all incomplete methods
+	}
+
+= Sub-class becomes complete and object can be created
+
+//Program
+(Program to demo inheritance of interface by class in typescript)
+	
+
+=> Interfaces and Inheritance:
+= One interface can Inherit another interface
+= This concept is allowed in Typescript
+= extends keyword is used to perform this
+Syntax:
+interface A1
+{
+}
+interface B1 extends A1
+{
+}
+//Use Sub-Class(C1) for B1 interface and redefine members to create objects of Sub-Class
+
+//Program
+(Program to demo interface-inheritance by interface in typescript)
+
+
+==> Multiple Inheritance with interfaces:-
+= 2 or more Base-Classes and single sub-class 
+(not-possible with classes)
+= However done with interfaces
+Ex:
+interface A2 
+{ 
+    a:number;
+} 
+interface B2
+{ 
+    b:number;
+} 
+interface C2 extends A2,B2 
+{ 
+    c:number;
+}
+//Use Sub-Class(D2) of C2 interface and redefine all members to create objects 
+
+//Program
+(Program to demo multiple-inheritance with interfaces in typescript)
+
+==> Objects in Typescript:-
+= An object is an instance of a class, which represents state(properties) and behavior(functionality) of a class
+
+= An object-literal is a set of (key,value) pairs
+= Object is collection of data as (Key,Value) pairs of diff types of data
+
+= Storing data is done in the form of 
+	= variables (number,string,boolean etc)
+	= arrays (coll. of same type of data Ex: [10,20,30])
+	= tuples (coll of diff type of data Ex: [101,"Sai",21] )
+	= object-literal (coll of diff-type of data as (K,V) pairs)
+
+Syntax:(using curly-braces {})
+	var obj = {
+		key1:value1,
+		key2:array,
+		key3:object,
+		key4:function(){
+					.....
+					}
+	};
+
+= Values can be scalar(single), function, array, tuple or object
+
+=> Accessing object-(key,values):-
+objName.key
+
+//Program
+(Program to declare an Object and use that object)
+
+NOTE:
+= This is also known as Object-Literal-Notation
+= (Key,Value) pairs are given with : and they are separeted by ,
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,122 @@
+==> Todays topics:-
+= Templates in Angular
+= Working with <ng-template> 
+= Programs
+
+=> What is template in Angular?
+= Template means view to the user
+= It is done with .html file
+Ex:-
+= app.component.html (<app-root></app-root> in index.html)
+= comp1.component.html (<app-comp1></app-comp1> in root-comp) 
+
+//Program (comp666 ---> demo-app)
+(Program for templates in Angular)
+Ex:-
+<app-comp666></app-comp666>
+(used in root-comp i.e app.component.html)
+
+= For any component, we have templates(view) .html in 2-ways
+a) .html file (comp666.component.html)
+Ex:	templateUrl: './comp666.component.html'
+
+b) Inline-template
+Ex: template:'<div>Hello from comp666 inline-template</div>'
+
+= Inline-template can be in multiple-lines
+Ex:
+template:`<div>
+        <h2>Hello from comp666 inline-template</h2>
+        <h3>Welcome from comp666 inline-template</h3>
+    </div>`
+(use back-tick(``) instead of '' for multiple-line template)
+
+=> For CSS, we use styles in 2-ways
+a) .css file (comp666.component.css)
+Ex: styleUrls: ['./comp666.component.css']
+
+b) Inline-css
+Ex:- (single-line)
+styles:['h3{color:orange;}']
+
+Ex: (multiple-lines using `` back-tick)
+styles:[`
+      h3{
+          color:orange;
+        }
+      h2{
+        color:red;
+      }
+      `]
+
+NOTE:-
+= Combination of template(html+css) makes view for any component to user
+
+==> Templates in Angular:-
+= From Angular4 version, we use <ng-template> instead of <template> tag
+= In HTML-5 also we have <template> tag, hence this was introduced
+
+= Usage Syntax:- (*ngIf directive)
+	<div *ngIf="boolean; then condition1 else condition2"></div>
+	<ng-template #condition1>TRUE-PART</ng-template>
+	<ng-template #condition2>FALSE-PART</ng-template>
+	
+= If boolean is true then condition1 template is executed otherwise condition2 template is executed
+
+= Here #condition1, #condition2 are template-reference-variables
+= They are like id's for unique identification of <ng-template>
+
+= In memory(DOM), #condition1, #condition2 will be referring to <ng-template> tag
+
+Ex1:-
+<div *ngIf="bb; then trueBlock else falseBlock"></div>
+<ng-template #trueBlock>True-Block is Executed</ng-template>
+<ng-template #falseBlock>False-Block is Executed</ng-template>
+	(and in comp-class)
+bb="true"; (false)
+
+
+// Program (comp666 ----> demo-app)
+(Same as comp666.component.html using *ngIf statement)
+
+
+NOTE::
+= Developer options in generating <div> tag for true or false of bool value
+= if bool is true then <div> tag is never created in HTML elements of DOM
+= In *ngIf, if trueBlock is removed then <div> is created in DOM for bool value true
+= If trueBlock is available then there is no necessity of <div> element for browser, hence it is never created
+
+
+NOTE:-
+=> Here #trueBlock, #falseBlock are template-reference-variables
+=> They are used to identify/refer HTML-elements in DOM
+=> Using which we can perform DOM-Operations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

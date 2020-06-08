@@ -1,0 +1,124 @@
+==> Todays Topics:-
+= Pipes in Angular
+= Programs
+
+==> Pipes in Angular:-
+= Pipes are nothing but filters in AngularJS
+i.e,
+	AngularJS ----> Filters
+	Angular(TS) ----> Pipes
+
+= Pipe means filtering or transforming the data in webpage as per user requirement
+
+
+= To use a pipe in webpage(template), we have |(pipe) symbol
+(bitwise-or | operator)
+
+= Syntax:
+	{{data | <<pipe-option>>}}
+
+
+= Some commonly used pipes are,
+Lowercase
+Uppercase
+titlecase
+Slice
+number(*)/Decimal-values
+Date
+Currency
+Json
+Percent
+
+= Ex:	{{msg | lowercase}}
+msg="Welcome to Angular";
+
+//Program (comp99 ---> demo-app)
+(Create a webpage to work with pre-defined pipes in Angular)
+Ex:-
+<div>
+    <h4>
+        {{msg | uppercase}} <br /><br />
+        {{msg | lowercase}} <br /><br />
+        {{msg | titlecase}} <br /><br />
+
+        {{msg | slice:0:5}} <br /><br />
+        {{msg | slice:1:5}} <br /><br />
+        {{msg | slice:2:5}} <br /><br />
+        <!--starting-index and ending-index(not-included)-->
+
+        {{1234.56 | currency}}<br/><br />
+		{{1234.56 | currency:"INR ":false}}<br/><br />
+		{{1234.56 | currency:"INR ":true}}<br/><br />
+	<!-- true indicates for 'INR' currency-code display currency-symbol (Default is false) -->	
+	
+		<hr />
+        {{1234.56 | currency:"INR":"code"}}<br/><br />
+        {{1234.56 | currency:"INR":"symbol"}}<br/><br />
+        {{1234.56 | currency:"INR":"symbol-narrow"}}<br/><br />
+        <hr />
+		<!-- code means "INR", symbol means "Currency-Symbol", symbol-narrow means "narrow-symbol" -->
+		
+        {{1234.56 | currency:"USD":true}}<br/><br />
+        {{1234.56 | currency:"EUR":true}}<br/><br />
+        {{1234.56 | currency:"Rs. ":true}}<br/><br />
+        {{1234.56 | currency:"GBP":true}}<br/><br />
+        <!-- true(default) means gets sign of the currency-code -->
+        <!--false means given curr-text/code is displayed-->
+
+        {{dd}}<br /><br />
+        {{dd | date:'longTime'}} <br/><br/>
+        {{dd | date:'shortTime'}}<br/><br/>
+        {{dd | date:'mediumTime'}}<br/><br/>
+		
+        {{dd | date:'d/M/y'}} <br/><br/>
+        {{dd | date:'dd/MM/yy'}} <br/><br/>
+        {{dd | date:'dd/M/yyyy'}} <br/><br/>
+
+        {{dd | date:'shortDate'}} <br/><br/>
+        {{dd | date:'longDate'}} <br/><br/>
+        {{dd | date:'mediumDate'}} <br/><br/>
+
+        {{dd | date:'short'}} <br/><br/> <!--with date&time-->
+        {{dd | date:'long'}} <br/><br/>
+        {{dd | date:'medium'}} <br/><br/>
+
+        {{ 123.456789123 | number: '3.3-4' }}<br /><br />
+        <!--// 3 is for main integer, 3 -4 are for min & max digits after fractional decimal-->
+        {{ 123.456789123 | number: '4.3-5' }}<br /><br />
+        <!--Rounding of digits also happen here-->
+        {{ 123.45 | number: '6.4-5' }}<br /><br />
+
+        {{00.54565 | percent}}<br /><br /> <!--Rounding will be done here-->
+        {{54565 | percent}}<br /><br />
+        {{545 | percent}}<br /><br />
+
+        {{months | slice:2:6}}<br /><br />
+        <!--2 is begin-index & 6 is end-index, which is not included-->
+
+        {{jsondata | json}}<br /><br />
+        <!--Both name,value pairs are double-quoted except numbers,boolean data-->
+    </h4>
+</div>
+
+
+(and in comp-class)
+  msg = "Welcome to Angular";
+  dd= new Date();
+  months = ["Jan", "Feb", "Mar", "April", "May", "Jun",
+             "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+  jsondata = {sno:1122, name:'Sai', age:'21', course:'CSE', marks:[56,76,89,99,59]};
+
+
+NOTE:-
+= For Pipes we can also pass Input-parameters using : as follows,
+	{{ data | <<pipename>> : para2 : para3 }}
+
+= We can apply multiple pipes at a time as follows,
+(use | operator multiple-times)
+	{{dd | date | uppercase }}
+Ex:-
+    {{dd | date | uppercase }} <br />
+    {{dd | date | lowercase }} <br />
+    {{dd | date | titlecase }} <br />
+

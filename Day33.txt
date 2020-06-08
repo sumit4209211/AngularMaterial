@@ -1,0 +1,174 @@
+==> Todays Topics:-
+= Directives in Angular
+= Custom Directives
+= Programs
+
+==> Directives in Angular:-
+= Directive means providing some info. to Angular Framework
+(Directive ---> Direction ---> providing some info)
+
+= According to HTML, directive is nothing but attributes or elements (tags)
+
+= In Angular, directives are .ts files (converted to .js files)
+= Syntax:	@Directive (decorator is used here)
+
+NOTE:- (decorators)
+@Component (component-class information)
+@Directive (directive-class information)
+
+
+=> Angular supports 3-types of directives,
+1)Component Directives:-
+= They are component-class & its selector
+
+= They deals with data-mem(properties), functions of a component-class
+= Example, 
+	<app-root>, <app-comp1>, <app-comp2> etc
+i.e, Root-Components & Child-Components Selectors in HTML webpage
+
+= these directives are used in views
+Ex:
+index.html (<app-root></app-root>)
+app.component.html (<app-comp1></app-comp1> ....etc)
+
+= They Provide information how data is processed and used at Runtime
+
+
+2) Structural Directives:-
+= They are used in Templates(.html file) with HTML elements
+= Pre-defined directive in Angular
+= Ex:
+	*ngIf, *ngFor, ngSwtich, ngForm, ngSubmit, etc
+	
+= These directives already have pre-defined functionality
+= Such functionality is given to our HTML-Elements	
+	
+Use:-	
+= They change the functionality of HTML elements for executing some html-tags, html-attributes & their values
+= Basically they deal with the DOM elements
+
+
+3) Attribute Directives:
+= They deal with change in look and behavior of the DOM elements
+= Also known as "Custom-Directives"
+(Our own directives)
+= Ex:
+	<div cust-dir>	//as attribute to html-element
+	....
+	</div>
+
+==> Steps for creating Custom-Directives:-
+Step1) Use the following command,
+cmd> ng g directive <<dirName>>
+Example,
+	ng g d demoDir
+(g for generate & d for directive)
+	
+= Following files are created,	
+src/app/demo-dir.directive.spec.ts
+src/app/demo-dir.directive.ts (***)
+src/app/app.module.ts (Updated in root-module)
+
+NOTE:
+i)
+= For creating a directive, first-word is in "lower-case" & from 2nd word onwards, only 1st letter is capital
+Ex:	demoDir, studentDir, empListDir
+
+= However such directive is created & used in our application as follows,
+Ex: demo-dir, student-dir, emp-list-dir
+i.e, all words in "lower-case", separated by hyphen(-)
+
+ii)
+= Such directive info. is auto. imported & included in our root-module (app.module.ts) file
+Ex:
+import { DemoDirDirective } from './demo-dir.directive';
+
+declarations: [
+    AppComponent,
+    DemoDirDirective
+]
+
+Step-2)
+= In "demo-dir.directive.ts" file has a "@Directive" decorator and selector-property in it
+Ex: "appDemoDir" (by default, we can also change this)
+= This selector is used in HTML-Elements as Attributes
+(Whatever we define in the selector, the same has to used in
+HTML Page for view)
+
+
+//Program (comp777 ----> "demo-app")
+(Create a new component 'comp77' and use custom-directive in comp777.component.html page)
+
+= Add "custom" variable (data-prop) in "comp777.component.ts" class(Comp777Component)
+Ex:-
+custom="Sai Ram Kumar";
+
+= Add the following code in comp777.component.html,
+= Ex:-
+<div>
+	<span appDemoDir>
+		Welcome to {{custom}}
+	</span>
+</div>
+
+= Add <app-comp777></app-comp777> to "app.component.html" file
+
+
+Step-3)
+= In DemoDirDirective(demo-dir.directive.ts) class, goto constructor and pass "ElementRef" object as parameter
+
+Ex:
+ constructor(element : ElementRef) 
+  { }
+= This parameter have reference to the html-element<span> where "appDemoDir" is applied in .html page
+  
+= Also import "ElementRef" class in your "demo-dir.directive.ts" file (from '@angular/core' package)
+
+
+Step4)
+= Now in the body of the constructor, define the functionality or coding for your custom-directive
+Ex:
+constructor(element : ElementRef)
+{
+	element.nativeElement.innerText="This is from Custom-Directive Message";
+	element.nativeElement.innerHTML="This msg is from Cust-Directive <br /> <br />";
+    element.nativeElement.style.color='blue';
+    element.nativeElement.style.background='yellow';
+    element.nativeElement.style.border='2px Solid Brown';
+	element.nativeElement.style.fontSize='20px';
+}
+
+
+NOTE:-
+= ElementRef is a predefined class in Angular, which gives reference to the Element where our cust-dir is getting used
+Ex:
+	<span appDemoDir>
+	</span> 
+= So, here "element" obj of ElementRef-class is reference to <span> element in memory
+= It is like DOM-reference var and using this reference, we can perform DOM operation in our .ts file (demo-dir.directive.ts)
+
+
+Step5)
+= Finally use in HTML-Templates(comp777.component.html) as,
+<span appDemoDir>
+    <br /><br />
+    Welcome to {{custom}}
+</span>
+
+= *** Here, custom-directive innerText is added before the <span> element previous innerText
+
+
+==> Flow of Angular-App(in Custom-Directive Example):-
+1) Root-Module (app.module.ts)
+	|
+	|
+2) Root-Component (app.component.ts)
+	|
+	|
+3a) Child-Component (comp777.component.ts)
+3b) Custom-Directive (demo-dir.directive.ts)
+(selector : ['appDemoDir'])
+
+NOTE:-
+= This cust-dir (appDemoDir) is used as attribute in child-comp(comp777) .html file for <span> tag
+

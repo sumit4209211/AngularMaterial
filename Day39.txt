@@ -1,0 +1,128 @@
+==> Todays Topics:-
+= Component to Component Interaction
+= Parent to Child Interaction(Communication)
+= Child to Parent Interaction
+= Programs
+
+==> Component to Component Interactions:-
+= A Component is Building Block of Angular Webpage
+= In Every Angular App, we have only 1 Root-Component i.e, AppComponent(app.component.ts) (<app-root></app-root>)
+
+= This selector(custome-tag) is used in index.html
+= For this selector, we have view(app.component.html)+css(app.component.css)
+
+
+NOTE:-
+= This root-comp i.e, AppComponent is a class
+= This class is loaded when webpage is requested by user and its class object is created by Angular Framework automatically
+
+
+= Every Component-class has properties(Data-Mem/Variable) & Functions(Logics) with Constructors(helps use to create object and initialize its data-prop)
+
+= data-prop (variables, data used for view in app/webpage)
+= functions (logics, operations on data, messages to user)
+= constructors (sp.functions, perform obj creation and data-prop initializes)
+
+=> Communication between Root-Comp to Child-Comp:-
+= Now, to make a communication between "Root-Component" to "Child-Component", we send the message or data through Child-Selector
+
+= This child-selector is available in root-comp template(.html)
+Ex:
+<app-comp1></app-comp1>
+<app-comp2></app-comp2>
+
+
+Ex: (app.component.html)--> Root-Component template(.html)
+<app-comp111 [parentMsg]="pmsg"></app-comp111>
+//Here msg/data is is binded in child-selector opening element
+cmd> ng g c comp111 (create new child-comp)
+
+Ex: (app.component.ts) --> Root-Comp class
+pmsg="Hello Message from Parent/Root component";
+
+NOTE:-
+[parentMsg] is a custom attribute-name binding
+
+
+= Such data can be used in Child-Component class with a property
+Ex: (comp111.component.ts)
+@Input() public parentMsg;//this-prop is bindind in child-selector
+@Input('parentMsg') public xxMsg;
+
+//Here @Input() is a decorator, which indicates that parent-msg is available to child-component
+// @Input() data-prop is capable of accepting parent-msg
+
+= To use this decorator, we import Input-interface from '@angular/core'
+Ex:
+import {Input} from '@angular/core';
+
+Ex:- (comp111.component.html)
+<p>comp111 works!</p>
+<div>
+    <p>Parent/Root Comp Msg : {{parentMsg}}</p>
+	<p>Parent/Root Comp Msg : {{xxMsg}}</p>
+</div>
+
+
+==> Child to Parent Communication:-
+= Now, to send the message from Child-Component to Root-Component, we make use of Custom-Events using "EventEmitter" class
+= It is done child-component class
+
+= This is because for child-component template(.html), we do not have parent-component selector
+= But in parent-component(.html), we have child-component selector
+(<app-comp111></app-comp111>)
+
+
+= It is done with the help of @Output() selector
+Ex: (comp111.component.ts)
+@Output() public childEvent = new EventEmitter();
+= Here we create an object of EventEmitter-class in Child-Component
+
+= To use this decorator, we import Output-interface, EventEmitter-class from '@angular/core'
+Ex:
+import {Output, EventEmitter} from '@angular/core';
+
+
+= Using this custom-event(childEvent), we send the message to Parent-Component as follows
+Ex: (comp111.component.ts)
+public f1()
+{
+	this.childEvent.emit("Hello Root-Component from Child-Component111");
+}
+//emit() sends the message to Parent-Component
+= emit() is in EventEmitter class, which is used to send message from child-comp to root-comp
+
+
+= Such message is captured using Event Binding in Child-Selector using $event object
+Ex:
+<app-comp111 (childEvent)="cMsg=$event"></app-comp111>
+Ex:- (comp111.component.html)
+<div>
+    <button (click)="f1()">Send Msg To Parent</button>
+</div>
+
+Ex: (app.component.html)
+<div>
+  <span>Child Comp Msg : {{cmsg}}</span>
+</div>
+(or) 
+<app-comp111 [parentMsg]="pmsg" (childEvent)="cmsg=$event"></app-comp111>
+Ex: (app.component.ts)
+cmsg="";
+
+
+= Finally, child-component msg/data is available in "cmsg" variable and can be use in Root-Component HTML page
+Ex: {{cmsg}}
+
+NOTE:-
+= Communication from 1-child-component to another child-component
+Steps:-
+1) Send msg from child-component to root-component
+= It is done with EventEmitter class emit() and @Output() child-event property
+
+2) Capture that event data/msg in selector of child-component available in root-component (.html) using a data-prop
+
+3) Such msg captured in data-prop of root-component is sent as msg to another child-component using @Input() for child-comp property
+
+(1-child-comp -----> Parent, (capture), Parent-comp ---> Another Child-comp)
+

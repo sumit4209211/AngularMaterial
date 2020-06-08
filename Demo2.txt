@@ -1,0 +1,83 @@
+==> Angular 8 with Free Typescript Demo Session-2 :-
+=> What is Angular?
+=> Where we use Angular?
+=> Diff b/w AngularJS & Angular
+=> Advantages of Angular
+=> Angular Building Blocks
+=> About typescript
+
+==> Pre-requisites for Angular?
+= HTML
+= CSS
+= Javascript/Typescript
+(Free Typescript for 1-week to 10-days)
+
+=> What is Angular?
+= Client-side Typescript Framework for developing dynamic Web-Apps
+= Now,
+Web -> Internet
+App -> Application
+(Websites) Ex: www.gmail.com, www.fb.com, www.yahoo.com
+
+= Dynamic Apps
+(Data/Info in website changes w.r.t 3-para)
+a) Time	(News-Update)
+b) Location (Weather-Report)
+c) User (Gmail/Facebook)
+
+=> Typescript is superscript of Javascript
+=> Framework is (Runtime Library + Runtime Environment)
+
+
+NOTE:
+AngularJS and Angular?
+= AngularJS is Javascript Framework
+= Angular is Typescript Framework
+
+= AngularJS is not 1st version of Angular
+= Angular is separate Framework and not related to AngularJS
+
+= Java (OOP)
+= .Net (OOP)
+(OOP used to developing computer apps)
+
+
+==> AJS v/s Angular?
+= Performance 5-times better
+= Cross-Platform (PC/Laptop/Mobiles/Tabs etc)
+= Easy to implement
+= More features of Typescript compared to Javascript
+(OOP like features)
+
+
+==> Building Block of Angular:-
+= Components (Everything is webpage is a component)
+==Diagram==
+= Modules (Grouping of related coding)
+= Templates (views by HTML/CSS)
+= Decorators (Extra Information to Angular Framework)
+= Services (Reuable coding in Angular)
+
+
+==> Adv of Angular than AJS?
+= It is not upgrade from AJS
+= Completely re-written in Typescript for dynamic web-apps development
+= Component based development (future of web-app dev)
+= More language choices,
+	Ex: Typescript
+		Dart
+		Purescript
+		Elm
+		etc
+= Angular itself is written in Typescript
+
+= Angular product is from (Google + Microsoft)
+
+
+=> What is typescript?
+= Free open-source developed by Microsoft
+= Super script of Javascript
+= Tanspilation compiles/converts Typescript into Javascript
+(Browser understands Javascript only)
+= Strongly typed language (data-types)
+

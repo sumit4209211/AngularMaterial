@@ -1,0 +1,188 @@
+==> Todays Topics:-
+= Flow of Execution of Files in Angular App
+= Creating Another Component (comp2,comp3)
+= How to change Homepage (index.html ---> welcome.html)
+= How to run other static html-webpages
+
+
+====>>>>>>>>>>Flow of Execution in Files<<<<<<<<<=====
+Step1: index.html 
+(under <body> section we find <app-root></app-root> element)
+
+Step2: main.ts 
+(has reference to <app-root> tag) as "AppModule" import and as well as parameter to bootstrapModule()
+
+Step3: app.module.ts 
+(AppComponent is given name with reference and also provided to bootstrap variable)
+
+Step4: app.component.ts  (Component is a class)
+= Here selector is app-root used in index.html as element(step1)
+= AppComponent is a class with 'title' variable, used in templateUrl of app.component.html file
+
+Step5 : In app.component.html file, it is used as 
+[Welcome to {{title}}]
+= It is binding feature (Interpolation) in Angular
+
+Step6: app.component.css, we can define our own css styles, which are applied to html content in app.component.html file
+
+
+==> Creating Another Component:-
+//Program (comp2)
+(Create a component to display "Welcome" msg to the user)
+cmd>ng g component comp2 
+= Created under welcome-app/src/app/comp2
+comp2.component.css (css file for comp2)
+comp2.component.html (html file for comp2)
+comp2.component.spec.ts (unit-testing file for comp2)
+comp2.component.ts (here we define data-prop+funcs for view)
+
+(index.html ---> main.ts ---> app.module.ts --->app.component.html ---> comp2.component.ts ----> comp2.component.html ---> comp2.component.css)
+
+NOTE:
+= In app.component.ts, 
+import { Comp2Component } from './comp2/comp2.component'; is created and also in
+declarations : Comp2Component is added
+
+
+= Now, in app.component.html add,
+<app-comp2></app-comp2>
+
+= In comp2.component.ts add,
+uname = "Sai Ramesh Kumar"; variable in "Comp2Component" class
+
+= In comp2.component.html add,
+<h3>
+  Welcome user : {{uname}}!!!
+</h3>
+= In comp2.component.css add,
+h3{
+	color:blue;
+    border:2px Solid green;
+    background-color: beige;
+}
+
+
+NOTE:
+= Add firstname and lastname and display "Welcome" msg (comp2.component.ts of Comp2Component class)
+
+==> Adding functions to component-classes:
+Syntax: (comp2.component.ts of Comp2Component class)
+fullName() : string
+{
+return (this.firstname+" "+this.lastname);
+}
+
+
+==> Adding CSS to components,
+Syntax:  (comp2.component.css)
+h2{
+	color:blue;
+    border:2px Solid green;
+    background-color: beige;
+}
+
+
+//Program (comp3)
+(Create a component to perform Basic-Arithmetic-Operations)
+[ng g component comp3] ---> //Created under welcome-app/src/app/comp3
+comp3.component.css (css file for comp3)
+comp3.component.html (html file for comp3)
+comp3.component.spec.ts (unit-testing file for comp3)
+comp3.component.ts (here we define modules,properties etc)
+
+(index.html ---> main.ts ---> app.module.ts --->app.component.html ---> comp3.component.ts ----> comp3.component.html ---> comp3.component.css)
+
+NOTE:-
+= Stopping the Angluar-Live-Development-Server (Ctrl+C)
+
+
+NOTE:
+= Add x and y data-members to comp3.component.ts of Comp3Component class
+
+==> Adding methods to comp3.component.ts of Comp3Component class
+  sum() : number
+  {
+    return (this.x+this.y);
+  }
+  sub() : number
+  {
+    return (this.x-this.y);
+  }
+  mul() : number
+  {
+    return (this.x*this.y);
+  }
+  div() : number
+  {
+    return (this.x/this.y);
+  }
+  mod() : number
+  {
+    return (this.x%this.y);
+  }
+
+//Use these methods or functions in comp3.component.html file using {{...}} binding expression
+Example,
+Addition : {{sum()}}
+
+
+= Adding CSS to components,
+Syntax:  (comp3.component.css)
+h2, h3
+{
+    color:blue;
+    border:2px Solid brown;
+    text-align:center;
+}
+h2{
+    background-color: lightblue;
+}
+h3{
+    background-color: orange;
+}
+
+
+NOTE:
+= How to change "index.html"(Homepage) of our Angular Application?
+= GOTO "angular.json" from your application root-folder(welcome-app) and change ["index": "welcome.html"]
+= Now, re-run the server again(ng serve -o), to get welcome.html as homepage
+
+= Create a new file (welcome.html under src folder)
+Ex:
+<h1>Welcome to New Homepage(welcome.html)</h1>
+<hr />
+<p>Thank you for new Homepage</p>
+
+
+=====> How to run other static-HTML files from browser?
+= Goto "angular.json", under "assets" property add your necessary static-html files
+Example,
+"assets": [
+        "src/assets",
+        "src/favicon.ico",
+        "src/welcome.html",
+        "src/homepage.html"
+      ]
+
+NOTE:-
+= After above changes in angular.json file, restart angular-server
+= Also add welcome.html & homepage.html files in project src-folder
+
+=> How to access? (static-html pages)
+localhost:4200/welcome.html
+localhost:4200/homepage.html
+
+NOTE:-
+If above files are missing from src folder and when we access using above url then auto page is redirected to index.html
+
+
+= Such files can be browsed as follows,
+http://localhost:4200/welcome.html
+http://localhost:4200/homepage.html
+
+= Any other static-page not available on application, will load homepage(index.html)
+
+
+
+
+

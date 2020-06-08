@@ -1,0 +1,198 @@
+==> Todays Topics:-
+=> Components Angular App
+=> How to create/work with Components
+=> Working Mechanism of Components
+
+
+==> Components in Angular App:-
+= Angular applications are developed using "Components"
+
+= Components are Building-Blocks for Developing Angular Applications
+
+= Components are typescript-classes that interacts with HTML files (View or display to user)
+
+= Every Angular application has "app" root-component with following files, they are,
+	a) app.component.css
+	b) app.component.html
+	c) app.component.spec.cs
+	d) app.component.ts (AppComponent -> root-component)
+	e) app.module.ts (AppModule -> root-module)
+
+NOTE:-
+= These are 5 important files of any Angular app
+= They are created by default for all Angular apps
+
+=>app.module.ts: (Root-Module file)
+= This file has some library imports and declarations assigned to "AppComponent"
+= "AppComponent" is the Parent-Component/Root-Component
+
+
+=> How to create our own components?
+= Use the following command,
+cmd> ng g component <<new-comp-name>>
+Ex:-
+cmd> ng g component comp1
+= comp1 is Child-Component of Parent-Component(AppComponent)
+= Created under welcome-app/src/app
+
+
+NOTE:
+g means generate
+c means component
+
+NOTE:
+= For this new-component(comp1), 4-files are created as follows,
+comp1.component.css (css file for comp1)
+comp1.component.html (html file for comp1)
+comp1.component.spec.ts (unit-testing file for comp1)
+comp1.component.ts (here we define data-prop & methods etc)
+
+
+Finally,
+= New-changes for this new "comp1" will be added to "app.module.ts" - 5th important file
+
+
+
+=> comp1.component.ts:
+= Here @Component indicates a decorator(meta-data) for new-component-class with the following properties
+	selector:'app-comp1'
+	templateUrl: './comp1.component.html'
+	styleUrls: ['./comp1.component.css']
+
+= @ is a declarator (Decorator)
+= Here a new-class is created "Comp1Component", which implements "OnInit" and has ngOnInit(), constructor (called by default when class is executed)
+
+
+NOTE:
+"AppComponent" (app-root) is always Parent-Component and 
+our "Comp1Component" (app-comp1) is Child-Component
+
+
+=> Now run the following command,
+cmd>ng serve -o
+(-o indicates open homepage(index.html) of our web-app)
+
+=> Browse the URL (http://localhost:4200/)
+(It opens index.html)
+
+
+
+=> Open index.html and goto <body> section, we have the following,
+<app-root></app-root> element
+=It is the application root tag created by default, it has reference in "main.ts"
+=AppModule is imported from our-app as parent-module and same is given to bootstrapModule() 
+
+=> Now, Open app.module.ts file,
+= AppComponent is the given name (reference app.component.ts)
+= Same is provided to bootstrap variable in @NgModule decorator
+
+
+=> Open app.component.ts file,
+= @angular/core is imported library(pkg) and reference is Component
+= Same is used a decorator
+= In declarator @Component, 
+	selector : app-root (tag used in <body> of index.html)
+= Class "AppComponent" has title variable, which is used in "templateUrl" file(app.component.html) 
+Ex: Welcome to {{title}}
+
+
+=> Open app.component.html file,
+= This file has HTML Code to display the content on webpage
+=  It uses {{title}} variable from "AppComponent" class
+=  This concept is known as Binding-Feature (Interpolation) using Binding-Expression
+
+
+==>NOW our new component (comp1):-
+= app.module.ts file has reference to our new-component "comp1" as "Comp1Component"
+
+=> Open comp1.component.ts file:
+= Here @Component declarator has selector(app-comp1), templateUrl, styleUrls properties
+
+
+= Open comp1.component.html file:
+//It has,
+<p>
+  comp1 works!
+</p>
+
+=> Open app.component.html(main comp html) file:
+= add the following code
+<app-comp1></app-comp1> element
+= Now refresh Home-page in browser
+
+
+=> Open comp1.component.ts file:
+= add one variable to the class (data-prop)
+= newvar = "New component class-comp1 variable";
+
+
+=> Open comp1.component.html file:
+= add binding variable as follows,
+<p>
+  New comp1 works! 
+  <br />
+  {{newvar}}
+</p>
+= Now refresh Home-page in browser
+
+
+= add anothervar="" in Comp1Component (comp1.component.ts) and use in html-file(comp1.component.html) using {{anothervar}}
+
+
+=> Applying CSS for new-component (comp1) tags/elements
+= comp1.component.css
+Ex:
+	p{
+		border:2px Solid Brown;
+		text-align:center;
+		background:lightyellow;
+	}
+	span{
+	}
+
+NOTE:
+Finally create other components and link them in main(root) app.component.html file as html elements
+
+
+NOTE:-
+= we can use component and it view in html file in 3-ways
+a) custom-tag (<app-comp1></app-comp1>) (Default-one)
+= Here we can change the selector for our custom-tag used in root-component
+Ex:
+comp1.component.ts (selector : 'child-comp1')
+= It is used as <child-comp1></child-comp1> (app.component.html)
+
+b) selector as a class in html-file (root-component)
+Ex:
+selector:'.app-comp1'
+(Used as follows)
+<div class="app-comp1">
+</div>
+
+c) selector as attribute to html-element
+selector:'[app-comp1]'
+(Used as follows)
+<div app-comp1>
+</div>
+
+
+NOTE:-
+= we can use component and it view in html file in 3-ways
+a) custom-tag (<app-comp1></app-comp1>) (Default-one)
+= Here we can change the selector for our custom-tag used in root-component
+Ex:
+comp1.component.ts (selector : 'child-comp1')
+= It is used as <child-comp1></child-comp1> (app.component.html)
+
+b) selector as a class in html-file (root-component)
+Ex:
+selector:'.app-comp1'
+(Used as follows)
+<div class="app-comp1">
+</div>
+
+c) selector as attribute to html-element
+selector:'[app-comp1]'
+(Used as follows)
+<div app-comp1>
+</div>

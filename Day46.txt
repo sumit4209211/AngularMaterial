@@ -1,0 +1,178 @@
+==> Todays Topics:-
+= Hyperlinks & Page-Navigations in Angular
+= Program
+
+==> Hyperlinks & Page-Navigations in Angular:-
+= What is Hyperlink?
+= It is nothing but a link between current page and another page
+(link between current page and any resource)
+(resource can be file/image etc)
+
+= Bascially, in Anuglar we perform hyperlinks using Routing Mechanism
+= This Routing mechanism is known as SPA (Single Page App)
+
+=> What is SPA?
+= In this first request goes to server from client
+= Client will get a single page as response
+= And client can perform all operations in single page only
+
+= This SPA is done using routing mechanism
+
+= Pre-Requisites:-
+1) import the following in Root-Module(app.module.ts)
+Ex:-
+import { RouterModule } from '@angular/router';
+
+2) In app.module.ts, we configure imports array as follows,
+Ex:-
+RouterModule.forRoot([
+      {
+        path:'app-comp1',
+        component:Comp1Component,
+      },
+      {
+        path:'aboutus',
+        component:Comp2Component
+      },
+      {
+        path:'services',
+        component:Comp3Component
+      },
+      {
+        path:'clients',
+        component:Comp4Component
+      },
+      {
+        path:'careers',
+        component:Comp5Component
+      },
+      {
+        path:'contactus',
+        component:Comp6Component
+      },
+      {
+        path:'yahoo',
+        component:Comp1Component
+      }
+    ])
+  ]
+
+
+3) Goto root-comp (app.component.html file)
+= Here configure links for SPA
+Ex:-
+<nav>
+<a routerLink="app-comp1">Home</a> | 
+<a routerLink="aboutus">About us</a> | 
+<a routerLink="services">Services</a> | 
+<a routerLink="clients">Clients</a> | 
+<a routerLink="careers">Careers</a> | 
+<a routerLink="contactus">ContactUs</a>
+</nav>
+
+= here instead of href="", we use routerLink="<<path>>"
+= <<path>> is configured in root-module using forRoot() in imports-arrays
+= When we click on particular link, its corresponding component(.html) is executed
+
+4) For above links to be displayed in Single-Page, we use below code
+Ex:-
+<div [ngClass]="{c1:true}">
+    <router-outlet></router-outlet>
+</div>
+
+= <router-outlet> is a special tag used for SPA view in same-page
+
+= Here c1 class is, 
+Ex:- (app.component.css)
+.c1
+{
+    width:500px;
+    height:300px;
+    background-color: lightyellow;
+    color:green;
+    border:2px Solid Brown;
+
+}
+
+
+5) Create all necessary child-comp's
+cmd> ng g c comp1
+cmd> ng g c comp2
+cmd> ng g c comp3
+cmd> ng g c comp4
+cmd> ng g c comp5
+cmd> ng g c comp6
+
+6) Run & Verify links in SPA
+
+
+==> How to work with child-links in SPA:-
+= For this in any component html file, we have take child-links
+Ex:- (comp1.component.html)
+<a routerLink="aboutus">About us</a> |
+<a routerLink="services">Services</a> | 
+<a routerLink="clients">Clients</a> | 
+<a routerLink="careers">Careers</a> | 
+
+<div style="width:50%;border:2px Solid Brown;height:200px;margin:10px;">
+	<router-outlet></router-outlet>
+</div>
+
+= Child-Links Routes are configured in root-module(app.module.ts) as follows,
+(imports-array)
+Ex:-
+RouterModule.forRoot([
+      {
+        path:'app-comp1',
+        component:Comp1Component,
+        children: [
+                  {
+                  path:  'aboutus',
+                  component:  Comp2Component
+                  },
+                  {
+                    path:  'services',
+                    component:  Comp3Component
+                  },
+                  {
+                    path:  'clients',
+                    component:  Comp4Component
+                  },
+                  {
+                    path:  'careers',
+                    component:  Comp5Component
+                  }
+          ]
+      },
+      {
+        path:'aboutus',
+        component:Comp2Component
+      },
+      {
+        path:'services',
+        component:Comp3Component
+      },
+      {
+        path:'clients',
+        component:Comp4Component
+      },
+      {
+        path:'careers',
+        component:Comp5Component
+      },
+      {
+        path:'contactus',
+        component:Comp6Component
+      },
+      {
+        path:'yahoo',
+        component:Comp1Component
+      }
+    ])
+  ]
+
+
+//Program (LinksApp)
+(Child-Routes with children-links or sub-links)
+
+**** All THE BEST ****

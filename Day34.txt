@@ -1,0 +1,98 @@
+==> Todays topics:-
+=> CSS in Angular 
+=> ngStyle, ngClass directives
+=> Programs
+
+
+==> CSS in Angular Webpage:-
+= CSS stands for Cascading Style Sheets
+
+= HTML (displaying data in webpage)
+= CSS (stylish of HTML webpage)
+
+= In Html, we apply CSS to html-elements in 4-ways,
+a) Inline CSS
+= here we use style="" html-attribute 
+Ex:
+<p style="color:blue;background-color:yellow;">
+...
+</p>
+
+= <tag style="propname:propvalue;">
+	.....
+  </tag>
+  
+=** Inline style sheet is used when we want to apply specific CSS for particular HTML-element
+
+= Now,
+***In Angular, Inline-CSS is applied as follows,
+(Style-Binding)
+Ex:
+<p [style.color]="'blue'" [style.background-color]="'yellow'" >
+...
+<p>
+
+Syntax:-
+	[style.color]="'blue'"
+	[style.background-color]="'yellow'"
+	
+= For this we use binding-operator [] (Square-brackets)
+
+
+//Program (comp88 --> "demo-app")
+(Create a webpage to perform CSS-Styles using [style] binding and [ngStyle] bindings)
+
+Ex:-
+<div>
+    <h3>Working with style, ngStyle attrs</h3>
+    <p [style.color]="'Blue'">This is Para1</p>
+    <p [style.background-color]="'yellow'">This is Para2</p>
+    <p [style.border]="'2px Solid Brown'" [style.text-align]="align">This is Para3</p>
+    <hr />
+    <p [style.font-size]="fsize">This is Para4</p>
+    <p [style.font-family]="ffamily">This is Para5</p>
+    <p [style.color]="clr">This is Para6</p>
+</div>
+(and)
+= Add data-prop in comp-class,
+	align="center";   //left,right
+	fsize="23px";
+	ffamily="Courier";
+	clr="green";
+
+NOTE:-
+= If CSS-prop-value is defined as data-prop in comp-class then '' (single-quotes) is not required
+
+
+= Syntax:
+[style.css_prop_name] = "'css_prop_value'" (with double-quotes)
+[style.css_prop_name]="class_property/var" (w.o double-quotes)
+	
+NOTE:
+= To apply multiple-styles at-a-time for a particular HTML element, we use [ngStyle]
+
+= Syntax: (it is also used in [] binding-operator)
+[ngStyle]="{'css_name':'css_value',...}"
+= Here {} are used for multiple-style-prop as object
+= Each prop-name & prop-values are given with '' (single-quotes)
+
+
+Ex:-
+<div>
+    <p [ngStyle]="{'color':'blue','border':'2px Solid Brown','text-align':'center'}">This is Para7</p>
+    <p [ngStyle]="myStyles">This is Para8</p>
+</div>
+(and)
+(in comp-class)
+Ex:-
+myStyles = {
+        color:'blue',
+        border:'2px Solid Brown',
+        textAlign:'center',
+        background:'yellow'
+  };
+
+
+
+
+

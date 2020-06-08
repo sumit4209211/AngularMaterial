@@ -1,0 +1,86 @@
+==> Todays Topics:-
+= HTML Property(Attribute) Binding in Angular
+= Programs on Property-Bindings ([])
+
+=> Property-Binding in Angular Webpage:-
+= HTML attributes are technically known as HTML-Properties (DOM-Properties)
+
+Ex:-
+<p align="center">	//left,right
+.....
+.....
+</p>
+
+= align="center" (HTML-Attribute) (name,value) pair
+= When we change this HTML-Attribute (value) then it is known as DOM-Property value
+
+NOTE:-
+= HTML tags/elements/attributes are coded by developer
+= Once HTML-page runs in browser, then in browser-memory HTML-page is represented as DOM (Document-Object-Model)
+
+= Here HTML-Attribute are known as DOM-Properties
+
+= HTML-Attributes are intialized by developer
+= Where as DOM-Properties are given/changed by Browser dynamically
+
+
+Ex1:
+<input type="text" id="..." name="..." value="..." disabled="..." />
+
+= Here type,id,name,value,disabled are HTML-attr/DOM-Properties
+
+NOTE:-
+= Once HTML-webpage is executed in the memory of Browser then it is known as DOM-Webpage
+
+Ex2:
+<input type="text" name="uname" value="SaiRam" .../>
+= Here, value="SaiRam" (HTML-attribute)
+= Here "SaiRam" is initial value displayed in text-box
+= Now, when user changes this value in text-box (Ex: "AliKhan") then value="AliKhan" (DOM-Property)
+
+NOTE:-
+= Such HTML-Properties are (name,value) pairs 
+= These values are generally static (given at coding-time)
+= However, we can make these values dynamic using Property-Binding of Angular
+= It is done with [...] Binding-Operator
+= This operator allows data flow from Component-Class variables to HTML Properties
+
+= Ex:	[id] = "myId"
+		[disabled] = "bool"
+		<p [align]="x">
+		</p>
+		
+= Here myId,bool are data-properties in comp-class
+Ex:
+	myId = "userid";
+	bool = true;
+	x = center; //right,left
+	
+=> Other Syntax:-
+	bind-disabled = "bool"
+= This is used instead of [] binding-operator
+= It is prefix to HTML-attribute (bind-), used before attributes in html-tags
+Ex:
+	bind-align="x"
+	bind-width="w"	//w is width	(define in comp-class as var)
+	bind-height="h"	//h is height
+	
+	
+//Program (comp2 ---> demo-app)
+(Create a Webpage to perform Property-Binding in Angular Webpage)
+
+cmd>ng g c comp2		(under demo-app)
+g -> generate
+c -> component	
+	
+NOTE:
+= Property-Binding in Angular for HTML-Attributes is capable of providing dynamic values for those attributes which can be modified manually
+Ex: disabled="false"; //always true
+
+= Here we can also use interpolation {{}} but it works only for string but not boolean values
+Ex:
+disabled="{{bool}}"	//does not work
+[disabled]="{{bool}}"	//works
+= where bool is data-prop as true in comp-class
+
+	

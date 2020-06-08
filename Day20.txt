@@ -1,0 +1,205 @@
+==> Todays Topics:-
+=> templateUrl and stylesUrl in Angular
+=> Angular Project(App) Folder Structure
+=> Angular Project(App) Files Structure
+
+
+=> What is Component-class in Angular:-
+= Component-class is a .ts file (typescript file)
+= Every Angular Project have 1-Root-Module and in this Root-Module we have 1-Root-Component
+
+= Root-Module is AppModule
+= Root-Component is AppComponent
+= Both of them are (.ts)classes in Angular
+
+=> Component-class (AppComponent):-
+= Every Component-class is make of 3 things
+a) View (.html + .css files)
+Ex:
+app.component.html
+app.component.css
+
+b) Data+Logics (Coding)
+Ex:
+app.component.ts (AppComponent class)
+(data for our view/display) ----> (data-properties)
+(logics/coding for our view) ----> (functions)
+
+c) imports & metadata
+= Imports means Libraries used in our Component-class
+Ex:
+import { Component } from '@angular/core';
+
+= metadata is data which provides information to Angular-App(Server)
+Ex:
+@Component({...})  -> called as decorator
+= Here we have selector as custom-tag used in index.html
+<app-root></app-root>
+= It provides view (.html+.css) using templateUrl & stylesUrl
+Ex:
+app.component.html
+app.component.css
+
+
+NOTE:
+Component-class => (View + Data/Logics + Meta-data)
+
+
+=> Working with templateUrl &stylesUrl:-
+= We can work with templateUrl and stylesUrl in 5-ways
+a) template (single-line using '')
+= Bascially templateUrl is given in separate file
+Ex: app.component.html
+= We can also give in same component-class in single-line
+
+NOTE:
+// provides comments in Component-class(AppComponent)
+
+Ex:
+template:'<div><h1>Welcome to {{title}}</h1></div>',
+
+b) template (multi-line using ``)
+Ex: (for this we use back-tick `)
+(it is beside 1-key and above tab-key)
+template:`<div>
+                <h1>Welcome to {{title}}</h1>
+            </div>
+            <hr />
+            <h2>Hello : {{uname}}</h2>
+            <h3>Fullname : {{fullname()}}<h2>`,
+
+
+c) styles (single-line using '')
+Ex:
+styles:['h1{color:blue; background: yellow; border:2px Solid Brown;}']
+
+d) styles (multi-line using ``)
+(using back-tick)
+Ex:
+styles:[`
+  h1{
+    color:blue;
+    background: yellow;
+    border:2px Solid Brown;
+}
+h2{
+    color:green;
+    background: lightyellow;
+    border:2px double Red;
+}
+h3{
+    color:red;
+    background: lightcyan;
+    border:1px dotted blue;
+}
+  `]
+
+
+e) styles (in multiple-files Ex: mystyles1.css, mystyles2.css)
+NOTE:
+Multipline in Component-class is done with
+/*
+.....
+.....
+*/
+
+Ex:
+styleUrls:['mystyles1.css','mystyles2.css']
+
+
+=> Angular Project Folder Structure:-
+A) e2e : 
+//end to end test folder. It is used for integration testing and ensure that our application works fine
+
+B) node_modules : 
+//npm packages installed is node_modules
+
+C) src : 
+//Here we will work on the project-files using Angular
+
+
+=> Angular Project Files Structure:-
+a) angular.json
+//It provides project-name, and other general info about our project
+
+b) karma.conf.js
+//Used for unit-testing via the protractor. Testing related info. is available here
+
+c) package.json
+//It tells which libraries will be installed into node_modules, when we run npm install
+*** We can add more libraries here using "npm install" command
+
+
+==>src folder structure(Project Working Folder):
+1) app folder: (files are installed by default)
+a) app.module.ts
+//It provides different lib-files which are imported in our project-app
+//Some default-libraries are angular/core, platform-browser etc
+//Such files are imported and stored in different variables as declarations,imports, providers, bootstrap
+	i) declarations: here reference of component is stored. AppComponent is default for every new-app.
+	ii) imports: imported modules are shown-here 
+	(BrowserModule from '@angular/platform-browser')
+	iii) providers: it has reference to the services created in app
+	iv) bootstrap: it has reference to default components created i.e, AppComponent
+
+b) app.component.css
+//Here we write our css structure
+
+c) app.component.html
+//Here we write our HTML code
+
+d) app.component.spec.ts
+//auto generated file which contain unit tests for source component
+
+e) app.component.ts
+//The class for the component is defined here
+//Processing of the html is done in .ts file
+//Processing means include activities such as connecting to the database, interacting with other components, routing, services, etc.
+
+
+2) assets folder:
+//Here we can store other files like images, texts, docs, JS files etc
+
+
+3) index.html
+//this file is displayed in Browser
+//body has <app-root></app-root>. It is the selector, which is used in app.component.ts file and will display the details from app.component.html file
+
+4) main.ts
+//file from where we start our project development. 
+//It starts with importing the basic modules
+// angular/core, angular/platform-browser-dynamic, app.module and environment is imported by default during angular-cli installation and project setup
+
+NOTE:(main.ts)
+//platformBrowserDynamic().bootstrapModule(AppModule) has the parent module reference AppModule. 
+//Hence, when it executes in the browser, the file that is called is index.html. 
+//Index.html internally refers to main.ts which calls the parent module i.e., AppModule
+
+//When AppModule is called, it calls app.module.ts which further calls the AppComponent based on the bootstrap (bootstrap: [AppComponent])
+//In app.component.ts, there is a selector: app-root which is used in the index.html file. This will display the contents present in app.component.html
+
+
+5) styles.css
+//style file required for the project
+
+6) test.ts
+//Here, unit-test-cases for testing the project are handled
+
+
+==> Basic Flow of Angular-App for Homepage:-
+index.html (<app-root></app-root>)
+	|
+	|
+main.ts
+	|
+	|
+AppModule (app.module.ts)
+	|
+	|
+AppComponent (app.component.ts)
+	|
+	|
+selector:'app-root'
+(.html + .css)
+
+

@@ -1,0 +1,119 @@
+==>> Todays Topics:-
+=> Looping Control-Structures
+=> Programs on Looping CS
+
+===>>> Looping Control Structure in Typescript:::::::
+= Executing a Block of Code more than once in a program is done with loops
+= Looping Control Structures are based on conditions, initial values and increment/decrement operations
+
+= Loops classification:
+	A) Definite (No. of Iterations are fixed)
+		i) for loop
+		ii) for...in loop
+		
+	B) Indefinite (No. of Iterations are unknown)
+		i) while loop
+		ii) do-while loop
+		
+
+A) Definite Loops:-
+i) for loop:
+= It executes a block of code based on initial-value, condition and step-value
+= Syntax:
+	for(initial-value;<<condition>>;step-value)
+	{
+		//statements;
+	}
+
+//Program
+(Program to demo for-loop)
+
+
+ii) for...in loop:
+= It executes a block of code specified no. of times over a set of values or an array or collection
+= Syntax:
+	for(var variable in list) //variable should or must be any or string only
+	{
+		//statements;
+	}
+ 
+//Program
+(Program to demo for...in loop)
+
+
+B) Indefinite Loops:-
+i) while loop:
+= Syntax: (first check the condition and then executes the body)
+
+	initial-value;
+	while(<<condition>>) //executes body when condition is true
+	{
+		//statements;
+		.....
+		step-value;
+	}
+
+//Program
+(Program to demo while-loop using factorial of a given number)
+
+
+ii) do-while loop:
+= Syntax:
+
+	initial-value;
+	do (first executes the body and then checks the condition)
+	{
+		//statements;
+		........
+		step-value;
+	}while(<<condition>>); 
+	//executes body-again when condition is true
+
+//Program
+(Program to demo do-while loop for printing Natural Numbers in Reverse)
+
+
+===> break statement:
+= It takes the control of execution out of the loop
+= It causes the loop to exit
+Syntax:
+	break;
+	
+//Program	
+(Program to demo break-stmt in a loop for printing Even-Numbers)
+
+
+==> continue statement:
+= It takes the control of execution to next-iteration in a loop
+= Simply continues with next-iteration by skipping remaining stmts of current-iteration
+Syntax:
+	continue;
+	
+//Program (Demo26.ts)	
+(Program to demo continue-stmt in a loop for printing ODD-Numbers)
+	
+==>> Infinite Loops in typescript:
+Examples,
+for(;;)	
+{
+	//statements;
+}
+
+while(true)
+{
+	//statements;
+}
+	
+//Program
+(Program to demo infinite loops)
+
+NOTE:
+= To come out of infinite-loop we use "Ctrl+C"
+
+
+
+
+
+
+
+

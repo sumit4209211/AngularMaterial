@@ -1,0 +1,149 @@
+==>Todays topics:-
+= Custom Pipes in Angular
+= Program
+
+=> Pipes in Angular?
+= Pipe is nothing but filter
+= Filter is used to tranform data in our required format
+= Filter is used with | (pipe-operator)
+
+Ex: (Using as Pipe)
+	{{data | uppercase}}
+	{{data | lowercase}}
+	{{data | titlecase}}
+	{{data | date}}
+	{{data | number}}
+	{{data | percent}}
+	{{data | slice}}
+	{{data | json}}
+= these are pre-defined pipes
+
+=> Custom-Pipes are our own pipes
+Ex: (How to apply)
+	{{data | <<pipe-name>> : args2 : args3}}
+= Here 1st para is data
+= 2nd and 3rd para are args2,args3
+
+= Pipes for array,
+ *ngFor="item in (array | <<pipe>> : args) "
+ 
+ 
+//Program (Range-based Pipe) 
+= minvalue & maxvalue
+= range is array
+ 
+ 
+=> STEPS for Custom Pipes:-
+1) Create our own typescript(.ts) file in our app under "src/app" folder
+Ex: "app.range.ts"
+(or)
+Use the following command,
+cmd> ng g pipe range
+= range.pipe.specs.ts	(used for testing)
+= range.pipe.ts (**)
+ 
+ 
+2) import "Pipe" interface & "PipeTranform" interface from '@angular/core' pkg in ("range.pipe.ts" file)
+= It is done automatically
+
+
+3) Create a decorator to provide name of a pipe
+@Pipe({
+	name : 'range'
+}
+)
+= Already created with pipe creation command
+
+4) Create a class which implements PipeTranform interface 
+Ex: "RanagePipe"
+export class RangePipe implements PipeTransform 
+{
+}
+= Already create automatically 
+	
+	
+5) Redefine transform() from PipeTranform interface in your Sub-class
+= Use proper input-para and return-values
+Ex:-
+transform(arr,min,max): number[]
+  {
+    var out=[];
+    var i;
+    for(i=0;i<arr.length;i++)
+    {
+      if(arr[i]>=min && arr[i]<=max)
+      {
+        out.push(arr[i]);
+      }
+    }
+    return out;
+  }
+	
+	
+6) Now, import this Custom-Pipe in app.module.ts (root-module) & add under declarations array
+Ex:import { RangePipe } from './app.range';
+
+= It is also done automatically
+
+
+7) Finally, we can use this in our templates(.html file) as follows
+Ex:- (comp110.component.html)
+<div>
+    Select your Range :
+    <br /><br />
+    Min-Value :
+    <input type="range" min="1" max="100" [(ngModel)]="minval" /> {{minval}}
+    <br /><br />
+    Max-Value :
+    <input type="range" min="101" max="200" [(ngModel)]="maxval" /> {{maxval}}
+    <br /><br />
+    <ul>
+        <li *ngFor="let x of (nums | range:minval:maxval)">
+            {{x}}
+        </li>
+    </ul>
+</div>
+
+
+= (and in comp-class)
+nums = [10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200];
+minval=10;
+maxval=200;
+
+8) Verify for required transformation of data using custom-pipe
+
+
+//Program (comp110 --> demo-app)
+(Create a webpage to perform Range-based Search using Custom-Pipe in Angular)
+
+NOTE:
+= Range means Array of Values between min-value & max-value
+= Custom-Pipe with 3-para 
+	i) Array
+	ii) min-value
+	iii) max-value
+
+//Program (Assignment)
+(Create a webpage to convert each character of a string upper to lower(vice-versa) using Custom-Pipe in Angular)
+	
+	
+
+
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	

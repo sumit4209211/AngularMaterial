@@ -1,0 +1,60 @@
+==> Todays Topics:-
+=> Creating Angular Application 
+=> How to run Angular Application
+=> Application Folder Structure
+(Basic Flow of Execution of Angular App)
+
+
+==> Revision:- (Last-Session)
+= Software Requirement For Angular App Dev
+A) Visual Studio Code (IDE)
+
+B) Node (nodejs.org)
+> node -v
+
+NOTE:
+= Our Working Directory is G:\AngularOnline\Angular>
+
+C) NPM (default)
+> npm -v
+
+D) angular-cli (Command Line Interface)
+> npm install -g @angular/cli
+> ng v (Verify)
+
+
+=> Creating First Application in Angular:-
+cmd>ng new first-app(FirstApp)
+= ng new is the command
+= Creates a new Angular App
+= It create complete folder structure for our Angular-App
+= Angular-App Folder structure is created in our Working directory
+
+cmd>cd first-app(FirstApp)
+= Goto our project working folder
+
+cmd\first-app(FirstApp)>ng serve
+= Compiles our Application
+= Deploys our App on Server
+= Opens our homepage for display (index.html)
+
+NOTE:
+= Angular Live Development Server is online at http://localhost:4200
+= Open the browser and type above URL to view your first-app Homepage (index.html)
+
+
+=> Basic Commands:-
+= ng new
+//to create a new application
+
+= ng serve
+//running our app locally while developing in browser using "Angular Live Development Server" (provided by node)
+
+= ng generate
+//Generate components, routes, services and pipes with this command (used in later session with respective topics)
+
+NOTE:
+"index.html" is the Homepage for any Angular-App
+(main.ts --> app.module.ts --> app.component.ts)
+
+

@@ -1,0 +1,367 @@
+==> Todays Topics:-
+= Forms in Angular
+= Template-Driven Forms & Model-Driven Forms
+= Form Validations
+= Programs
+
+
+=> Forms in Angular:-
+= Form is a container in HTML webpage
+= It is used to accept data or input from user
+= Some commonly used Input fields are:
+	a) text-field
+	b) text-area
+	c) check box
+	d) radio button
+	e) submit button
+	f) button
+	g) select box
+	h) password field
+	i) upload field
+	j) email field
+	k) hidden field
+	
+= Data accepted from user is validated and submitted to server
+
+= Forms are used as,
+	i) Registration Form
+	ii) Login Form
+	iii) Submit Data Forms
+	iv) Place order Forms
+	v) Schedule Appointment Forms
+	vi) Feedback/Query Forms etc 
+
+
+= Forms in Angular are used in 2 ways,
+A) Template Driven Forms (TDF)
+B) Model Driven Forms (ReactiveForms) (MDF)
+
+A) Template Driven Forms:-
+= To work with forms, we require "FormsModule" from "@angular/forms" package
+= import this in root-module in "app.module.ts" file of your application
+= Also add this in imports-array
+
+
+= Now, go to "app.component.html" file and add the following code,
+Ex:-
+<div>
+	<h3>Template Driven Forms</h3>
+  <form #userlogin="ngForm" (ngSubmit)="f1(userlogin.value)" >
+    Enter E-mail : 
+    <input type="text" name="email" placeholder="Enter E-mail" ngModel>
+    <br/><br />
+    Enter Password :
+    <input type="password" name="pwd" placeholder="Enter password" ngModel>
+    <br/><br />
+    <input type = "submit" value = "submit">
+ </form>
+</div>
+<br /><br />
+Given Email ID : {{givenemail}}		//they are data-prop
+<br /><br />
+Given Password : {{givenpassword}}
+
+
+=> Important Points:- (TDF)
+= For every input-control attach ngModel directive(as attribute) and name="" attribute is compulsory
+
+= "ngModel" allows us to access data from form I/P Controls using form input element name=""
+
+= add #userlogin="ngForm" to <form> tag, which as template-ref-var
+= #userlogin is reference/represent to a form in DOM (memory)
+= Here "ngForm" is assigned to template-ref-var(#userlogin)
+(It means #userlogin is a reference to form in DOM)
+
+
+= add f1() to (ngSubmit) event, also pass userlogin.value as parameter 
+= userlogin.value allows us to access data from form in component-class f1()
+= This is data is in the form JSON
+Ex:
+{"email":"sai@gmail.com", "pwd":"sairam123@"}
+
+
+=> Open app.component.ts, add f1() function
+Ex:
+export class AppComponent 
+{
+  title = 'app';
+  givenemail='';
+  givenpassword='';
+  f1(data)
+  {
+    console.log("Given Email Id : "+data.email);
+    console.log("Given Password : "+data.pwd);
+    
+	console.log(data);	//JSON data is printed
+    
+    this.givenemail = data.email;
+    this.givenpassword = data.pwd;
+  }
+}
+
+
+NOTE:-
+= Here f1(data) contains "userlogin.value" sent as parameter
+= this data is an object with (name:value) pairs containing all Input controls data in JS-object format
+Ex:
+	{email: "sai@gmail.com", pwd: "sairam123@"}
+
+= If we pass just "userlogin" as paramter, it is just reference to the form in webpage
+= To access such form data(JS-object),again we use "data.value" in f1()
+= And to get individual-data for different input-controls we use "data.value.email" etc
+
+
+NOTE2:-
+= After accessing all data from the form in f1() functions, we use that data for form-submission to Server using HttpClient get() or post() method
+
+
+B) Model-Driven Forms (ReactiveForms):-
+= They are also known as Reactive-Forms
+= In this, we have to import "ReactiveFormsModule" from @angular/forms pkg in app.module.ts(root-module) file of our application
+= Also, add "ReactiveFormsModule" to imports array too
+Ex:-
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+=> Now create some Child-Components(comp1/comp2/comp3)
+cmd> ng g c comp1
+cmd> ng g c comp2
+cmd> ng g c comp3
+
+= In comp1.component.ts file, import few more classes for Model-Driven-Forms(Reactive-Forms),
+Ex:-
+import { FormGroup, FormControl } from '@angular/forms';
+
+= (and) formdata; property(Data-member) in comp-class
+
+
+= Add the following code in ngOnInit() method,
+Ex:-
+ngOnInit() {    //for intial loading of data
+      this.formdata = new FormGroup({
+      emailid: new FormControl("sai@gmail.com"),
+      password: new FormControl("ram")
+      });
+  }
+= Here "emailid" and "password" are "formControlName" in form-input-controls of .html file
+
+
+NOTE:
+= Here formdata(data-property) is used to initialize html form input-control values
+= It is done with FormGroup class object
+= For this class constructor, we pass form input control values as object (name:value) pairs using "formControlName"
+
+
+= In comp1.component.html, do the following changes,
+Ex:-
+<h3>
+    Child-Component(comp1) Works!
+</h3>
+<div>
+    <fieldset>
+      <legend>Model Driven Forms(Reactive)</legend>
+    <form [formGroup]="formdata" name="form1" (ngSubmit)="f1(formdata.value)" >
+      Enter E-mail : 
+      <input type="text" name="email" placeholder="Enter E-mail" formControlName="emailid">
+      <br/><br />
+      Enter Password :
+      <input type="password" name="pwd" placeholder="Enter password" formControlName="password">
+      <br/><br />
+      <input type = "submit" value = "Log-In">
+   </form>
+   <br /><br />
+   Given Email ID : {{givenemail}}
+   <br /><br />
+   Given Password : {{givenpassword}}
+  </fieldset>
+  </div>
+  <hr />
+
+
+= On submit, "formdata" values are passed to f1(), can be retrieved and used for any other Web-API (Server) communications
+Ex:- (comp1.component.ts)
+  formdata;
+  givenemail='';
+  givenpassword='';
+  f1(data)  //for new/updated values
+  {
+    console.log("Given Email Id : "+data.emailid);
+    console.log("Given Password : "+data.password);
+    
+    console.log(data); //JSON data
+        
+    this.givenemail = data.emailid;
+    this.givenpassword = data.password;
+  }
+   
+NOTE:
+= In this .html file, [formGroup] attribute is binded with "formdata" value
+= On Submit, f1() is called with "formdata.value" as parameter
+
+= "formControlName" is used in ngOnInit() for intial values as well as f1() for getting the new-values
+= These names are used to identify form-input-controls in Reactive-Forms
+Ex: 
+formControlName="emailid"
+formControlName="password"
+= Such names are mandatory-attribute for I/P-controls in Reactive-Forms
+
+
+NOTE****: 
+= Reactive-Forms are used especially when we perform updates in our online account details such as gmail/yahoomail/fb etc
+= Here 1st our details are loaded from server(reflected in input controls) and then our modified values are updated to server using HttpClient with get() or post()
+
+
+
+==> Validating Forms in TDF approach:-
+= Before the form-data is clicked for Submission, we have to validate data in form I/P fields
+
+= What is Validation?
+Validation means checking whether our I/P data in a form is correct or not
+
+= If correct then submit the form
+= If not-correct then do not submit the form
+
+//Program (comp3)
+Steps:
+==> In Angular, to perform validation on I/P fields, we use these things necessarily,
+i) For every I/P control use Template-Ref-Var & assign with ngModel Directive (compulsory)
+Ex:
+	#t1="ngModel" 	(firstname)
+	#t2="ngModel"	(lastname)
+	#t3="ngModel"	(city)
+	#t4="ngModel"	(email)
+	#t5="ngModel"	(pincode)
+= This temp-ref-var allows us to check for validations
+
+
+ii) For I/P fields, where validations are necessary, use Angular Provide "Validation Directives"
+Ex:
+	required (firstname,lastname)
+	minlength	(city)
+	maxlength	(city)
+	email (email-itself is validation)
+	pattern (pincode)
+	...etc
+	
+
+iii) Display appropriate messages beside I/P fields when validation fails
+= It is done with *ngIf="<<condition>>"
+
+
+iv) Such condition are given using Angular Validation Properties using temp-ref-var of input-controls(t1,t2,t3,....)
+Ex:
+	valid
+	invalid
+	dirty
+	pristine
+	touched
+	untouched
+	errors
+	etc
+
+v) These Validation-Properties are used with I/P fields temp-ref-var
+Ex:
+	*ngIf="t1.invalid && t1.touched"
+//if true display Error Message other wise no-error msg	
+	
+vi) If all form validations are OK then form submit button should be Active other-wise InActive(disabled)
+Ex:
+	<submit	[disabled]="userForm.form.invalid" .../>
+
+
+NOTE:
+Use novalidate attribute for <form> tag, it will disable HTML-5 Browser default Validation	
+
+
+//Program (comp3)
+(Create a webpage to perform Template Driven Forms and its Validations)
+[comp3.component.html]
+Ex:-
+<h3>
+  Template Driven Forms
+</h3>
+<div>
+  <form name="f1" #userForm="ngForm" (ngSubmit)="f1(userForm.value)" novalidate>
+          <!--Disables HTML5 validations-->
+  <fieldset>
+  <legend>Customer Registration Form</legend>
+  <br />
+  {{userForm.value | json}}
+  <br /><br />
+  Form is Valid : {{userForm.form.valid}}
+  <br /><br />
+  Enter FirstName :
+  <input type="text" name="t1" required #t1="ngModel" ngModel/>
+  <span *ngIf="t1.invalid && t1.touched">
+    <small class="c1">FirstName is required</small>
+  </span>
+  
+  <br /><br />
+  Enter LastName :
+  <input type="text" name="t2" required #t2="ngModel" ngModel/>
+  <span *ngIf="t2.invalid && t2.touched">
+    <small class="c1">LastName is required</small>
+  </span> 
+
+  <br /><br />
+  Enter City :
+  <input type="text" name="t3" required minlength="3" maxlength="10" #t3="ngModel" ngModel/>
+  <span *ngIf="t3.errors && (t3.invalid && t3.touched)">
+    <small class="c1" *ngIf="t3.errors.required">City is required</small>
+    <small class="c1" *ngIf="t3.errors.minlength">Minimum Length is 3 chars</small>
+    <small class="c1" *ngIf="t3.errors.maxlength">Maximum Length is 10 chars</small>	
+  </span>
+  <br /><br />	
+  Enter Email :
+  <input type="email" name="t4" required email #t4="ngModel" ngModel/>
+  <!--email itself is validation-->
+  <span *ngIf="t4.errors && (t4.invalid && t4.touched)">
+    <small class="c1" *ngIf="t4.errors.required">Email is required</small>	
+    <small class="c1" *ngIf="t4.errors.email">Enter Proper Email ID</small>
+  </span>
+    
+  <br /><br />	
+  Enter Pincode :
+  <input type="text" name="t5" required pattern="^[1-9][0-9]{5}$" #t5="ngModel" ngModel/>
+  <!-- Escape Sequence characters  /^\d{6}$/ ng-pattern="/^[1-9][0-9]{5}$/"
+  pattern="^\d{10}$"-->
+  <span *ngIf="t5.errors && (t5.invalid && t5.touched)">
+    <small class="c1" *ngIf="t5.errors.required">Pincode is required</small>
+    <small class="c1" *ngIf="t5.errors.pattern">Enter Proper 6-digit Pincode</small>
+  </span>
+  <br /><br />
+  <input type="submit" name="t6" [disabled]="userForm.form.invalid" value="SUBMIT" />
+      
+  </fieldset>
+  </form>
+  </div>
+
+
+=> and [comp3.component.ts]
+Ex:-
+export class Comp3Component implements OnInit {
+  public fname = '';
+  public lname = '';
+  public city = '';
+  public email = '';
+  public pincode = '';
+  
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  f1(data)
+  {
+    console.log(data.t1);
+    console.log(data.t2);
+    console.log(data.t3);
+    console.log(data.t4);
+    console.log(data.t5);
+	
+	//such data is submitted to server using HttpClinet with get() or post()
+  }
+
+}
+
+

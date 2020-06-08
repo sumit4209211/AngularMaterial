@@ -1,0 +1,135 @@
+==> Todays Topics:-
+= Operators in Typescript
+= Programs on Operators
+
+=> Operators in Typescript:-
+= Operators are symbols which are used to perform some Operations on Values in a Program
+= Example,
+10 + 20 = 30
+//Here 10, 20 are values(Operands)
+//+, = are Operators
+
+
+= Typescript supports the following Operators
+1) Arithmetic operators (+, -, *, /, %, ++, --)
+2) Logical operators	(&&, ||, !)
+3) Relational operators (<, >, <=, >=, ==, !=)	
+4) Bitwise operators	(&, |, ^, ~, <<, >>)
+5) Assignment operators	(=)
+6**) Ternary/conditional operator	(? :)
+7) String operator	(+)
+8) typeof Operator	(type(var))
+9) Misc Operators	(negation(-), instanceof)
+
+
+1) Arithmetic Operators:
+= They are 
++ (Addition), 
+- (Subtraction), 
+* (Multiplication), 
+/ (Division), 
+% (Modulo), 
+++ (Increment), 
+-- (Decrement)
+
+//Program
+(Program to perform Basic Arithmetic Operations)
+
+
+2) Relational Operators: (Comparision Operators)
+= Performs relation between 2 values and gives true or false. They are,
+>	(Greater than)
+<	(Lesser than)
+>=	(Greater than or equal to)
+<=	(Lesser than or equal to)
+==	(Equality)
+!=	(Not-equal)
+
+//Program
+(Program to perform Relational Operations)
+
+
+3) Logical Operators:
+= They combine 2 or more conditions and give the result as true or false. They are,
+&& (AND) - if all conditions are true then only it is true
+|| (OR) - if any 1-condition is true then it is true
+! (NOT) - true is false and false is true
+
+//Program
+(Program to perform Logical Operations)
+
+
+4) Bitwise Operators:
+= They are used to perform operations on bit-levels of given values. They are,
+& (Bitwise AND)
+| (BitWise OR)
+^ (Bitwise XOR)
+~ (Bitwise Not)	
+<< (Left Shift)
+>> (Right Shift)
+
+//Program
+(Program to perform Bitwise Operations)
+
+
+5) Assignment Operators:
+= It is used to assign a value to a variable. They are,
+= (Simple Assignment)
+Ex:-
+a=10;
+b=20;
+sum=a+b;
+
++= (Add and Assignment)			Ex: a+=b; (a=a+b)
+-= (Subtract and Assignment)	Ex: a-=b; (a=a-b)
+*= (Multiply and Assignment)	Ex: a*=b; (a=a*b)
+/= (Divide and Assignment)		Ex: a/=b; (a=a/b)
+%= (Modulo and Assignment)		Ex: a%=b; (a=a%b)
+
+//Program
+(Program to perform Assignment Operations)
+
+
+6) Ternary/conditional operator:
+= This operator checks for a condition and executes true-part or false-part
+= It is  ? :
+Example,
+(expr1) ? (expr2) : (expr3)
+
+//Program
+(Program to perform Conditional Operation)
+
+
+7) String-Addition Operator:
+= + operator combines 2 Strings into single-string 
+(appends 2nd string at the end of 1st string)
+Example,
+	"Hello"+"World" ==> "HelloWorld"
+	string+number ==> string
+	number+string ==> string
+
+//Program
+(Program to perform String-Addition Operation)
+
+8) typeof Operator:
+= It is a unary operator. 
+= It returns the data-type of the operand
+
+//Program
+(Program to perform typeof Operation)
+
+
+9) Other Operators::
+A) Negation Operator: (-)
+= It returns negation of a given number 
+i.e, changes the sign of given number
+
+//Program
+(Program to perform Negation Operation)
+
+B) instanceof Operator:
+= It is used to test if an object is of a specified type or not.
+= Use in classes concept
+
+
+

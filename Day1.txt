@@ -1,0 +1,154 @@
+==>> Todays Session:-
+=> What is Typescript?
+=> Introduction & History of Typescript
+=> How to setup Typescript in Windows OS
+
+
+=> Angular Sessions:
+= 50+ Sessions
+= 1st Week to 10-days (Free typescript)
+= Daily timings (8PM)
+= Daily 1-hour
+----------------------------
+= Every session is recorded
+(Recording will be provided to Students)
+= For Every Sessions Notes or Material will be provided
+
+NOTE:
+= Recording Videos, Notes or Material will be given on daily basis
+(Sharing with Google-Drive)
+= Gmail ID : "srikanth.sai.online@gmail.com"
+
+
+===>> Typescript:-
+= TypeScript allows us write JavaScript as per our requirements
+(Programming in a webpage)
+(HTML+CSS does not have programming capability)
+
+= TypeScript is a typed-superset of JavaScript
+==Diagram==
+
+= TypeScript provides Object-Oriented concepts like
+classes, 
+interfaces etc 
+(like Java, .Net Programming Languages)
+
+==(OOP concepts - Abstraction, Encapsulation, Inheritance, Polymorphism)
+
+
+NOTE:-
+Every typescript is converted to javascript
+(.ts -----> .js)
+Why this conversion?
+(Till today Browser understands only JavaScript)
+
+=>Transpilation:-
+It is the process of converting typescript into javascript
+
+NOTE:-
+Before Angular is executed for user in browser, in server-only .ts is converted to .js
+
+==>> Other Scripting Languages which compiles to JavaScript:-
+= Dart
+= Elm
+= PureScript
+= CoffeeScript
+= ClojureScript
+= Scala.js
+= Reason (by FaceBook)
+= Haxe
+= Nim
+
+
+NOTE:
+= Angular Framework in re-written in TypeScript
+= TypeScript allows us to write both client and server-side scripts
+= Advantage is, Building web-applications Quick and Fast
+
+=> Prerequisites for TypeScript::::
+= JavaScript
+= OOP concepts of PL
+
+
+==>>> Introduction and History of TypeScript:-
+= Javascript is a client-side scripting language for Programming in HTML Webpage
+= Node.js is server-side scripting language
+= In Enterprise-Application, Javascript is complex and difficult to maintain
+= TypeScript is best alternative for this with features like OO, Type-checking etc.
+
+
+=> Definition::::
+TypeScript is Javascript for developing Web-application, it is OO, Compiled Language and Typed Language
+
+=> History::::
+= It was invented by Anders Hejlsberg, at Microsoft (1996)
+= It is superset of Javascript
+==(Diagram)==
+= TypeScript is (Javascript+Additional Features)
+
+
+==> Features of Typescript:::::
+1) TypeScript is Javascript (converted)
+2) Support for Javascript Libraries
+3) Javascript to TypeScript (.js to .ts) 
+4) Portable (Browser, OS, Devices)
+5) OO Scripting Language (OOP Features)
+6) Typed Scripting Language (datatypes)
+7) Classes and Modules
+8) Generics and Type-Annotations
+
+==> Advantages of TypeScript:::: (Why TypeScript?)
+1) Compiled Scripting Lang. (Compiler, Errors) - (Transpiler)
+2) Typed Scripting Lang. (Datatypes)
+3) Support Other Javascript Libraries
+4) Supports OOP like Classes, Interfaces, Inheritance etc.
+
+
+===>>> How to Setup Environment for Typescript:::::
+1) In Windows OS::::
+= Typescript is open-source technology (Free-of-Cost)
+= It can run on any Browser, any OS, any Device and also on any Server-Machine (Java/.Net/Python/PHP Servers)
+
+
+= Software/Tools Requirements are,
+	A) Text-Editor (Notepad, Edit-Plus, Notepad++, Emacs, Vi or Vim)
+		//File Extensions are ".ts"
+			
+		
+	B) Typescript-Compiler 
+		//Converts ".ts" file into ".js" file 
+		(process is known as "Transpilation")
+		//It is also known as "Transcompiler/Transpiler" 
+		(.ts files ----> .js)
+
+	C) Node.js (Cross platform Server-Side RT Environment for JS)	
+		//Runs Javascript W.O Browser
+		(https://nodejs.org/en/download/)
+			
+		//Install and Verify it by opening Command-Prompt and type the following command (node -v) & Check the version
+		
+		//*** Now install Typescript in CMD by using the following the command 
+		(npm install -g typescript)
+		
+		//*** Verify it by typing the following command (tsc (or) tsc -v)
+
+	D) IDE Support:-
+		//Visual Studio (Code) (Best for Windows OS), 
+		Sublime Text 2, 
+		WebStorm/PHPStorm, 
+		Eclipse, 
+		Brackets (Optional for Windows OS) etc.
+		
+		//Download and Install "Visual Studio Code - Open Source IDE" from (https://code.visualstudio.com/)
+
+***************Thank you all of you*****************
+
+
+
+
+
+
+
+
+
+

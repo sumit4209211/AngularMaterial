@@ -1,0 +1,124 @@
+==> Todays Topics:-
+=> Lamda Functions
+=> Lamda Expressions
+=> Functions Overloading
+=> Programs
+
+=> What is Function?
+= Function is a block of code, which is used to perform specific task in our program
+Syntax:
+	funcName(para,....) : <<return-type>>
+	{
+		body;
+		.....
+		return value;
+	}
+
+=> Advantage:-
+a) Write once, call any no.of times
+b) Reusability
+c) Complexity of Program Reduces
+
+
+=> Lamda?
+= Without Name
+
+=> Lamda Function?
+= Function without a name
+
+
+==> Lamda Functions (Anonymous Functions)::
+= Lamda means Anonymous (without name)
+= They are also called as "Anonymous-Functions"
+
+= To write a Lamda Functions, we use => (arrow-operator)
+= 2 Symbols (= assignment and > greater-than)
+
+Syntax: 
+	(para1,para2,.....)=>statements/block-of-code;
+	=1st ====> It has Parameters	
+	=2nd ====> arrow/lamda notation (goes to operator)
+	=3rd ====> Statements
+
+
+=> Lamda-Expression: 
+= Here we have single-line of code in Lamda-Function
+
+= It is anonymous function expression which points to single line code
+Example,
+	var result = (x:number)=>(x*x);
+	console.log(result(10));
+
+//Program
+(Program to demo. Lamda Functions in typescript)
+
+
+
+=> Lamda-Statement: 
+= It is anonymous function expression which points to block-of-code
+Example,
+	var result = (x:number)=> {    
+					x = x * x ;
+					console.log("Square of X : "+x);
+				} ;
+	result(11);
+
+//Program
+(Program to demo. Lamda Functions in typescript)
+
+
+
+=> Syntactic Variation:
+(Parameter type inference)
+= In Lamda function is not mandatory to give dtype of parameter
+= Default is taken as "any"
+
+//Program
+(Program to demo. Lamda-Functions in typescript)
+
+
+NOTE:
+= Parenthesis() is optional for single-parameter
+= Curly Braces{} are optional for single statement 
+= empty parenthesis() for no-parameter
+
+
+==>> Function Overloading:
+= Multiple functions(2 or more) with same-name and atleast one difference in function-signature
+
+= Function-Signature is,
+	- No. of Parameters
+	- Order of Parameters
+	- Datatype of Parameters
+
+= Function return-type is not part of function-signature
+
+
+Steps:
+1) First declare all the function as prototypes (only declarations)
+2) Secondly define all the functions
+3) Call or Invoke the functions
+
+
+//Program
+(Program to demo function-overloading in typescript)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
